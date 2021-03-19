@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- css lokal -->
+    <link rel="styleshet" href="gaya.css">
+    
+    <!-- judul -->
+    <title>Input Data Guru</title>
+    </head>
+    <body>
+        <!-- navbar -->
+        <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand text-white" href="#">Try-O</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li> -->
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </div>
+        </nav>
+    </div>
+    <div class="container mt-4 ml-8">
+        <div class="row">
+            <h1> Input Data Guru </h1>
+        </div>
+        <div class="container">
+            <div>
+                <form>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="namaDepan"> Nama Depan</label>
+                            <input type="namaDepan" class="form-control" placeholder="Nama Depan">
+                        </div>
+                        <div class="col">
+                            <label for="namaBelakang"> Nama Belakang</label>
+                            <input type="namaBelakang" class="form-control" placeholder="Nama Belakang">
+                        </div>
+                    </div> <br>
+                    <div class="form-row">
+                        <div class="col-md-11">
+                            <label for="validationCustom03">Tempat & Tanggal Lahir                          </label>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Tempat Lahir" required>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <input type="text" class="form-control" id="validationCustom04" placeholder="Tanggal lahir" required>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="Bulan lahir" required>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="Tahun lahir" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="usernameInput">Email</label>
+                        <input type="username" class="form-control" id="usernameInput" placeholder="Tulis email anda" required>
+                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="usernameInput">NIP</label>
+                        <input type="username" class="form-control" id="usernameInput" placeholder="Tulis Nomor Induk Pengajar anda" required>
+                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <label for="validationCustomUsername">Username</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="passInput">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukkan Password" required>
+                    </div>
+                </form>
+            </div>
+            <button class="btn btn-primary mt-2" type="submit">Simpan</button>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
