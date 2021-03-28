@@ -27,7 +27,8 @@
                 <div class="row align-items-center min-vh-75 my-lg-8">
                     <div class="col-md-7 col-lg-6 text-center text-md-start py-8">
                         <h1 class="mb-4 display-1 lh-sm">Try Out Online</h1>
-                        <p class="mt-4 mb-5 fs-1 lh-base">Melatih pemahaman materi, <br class="d-none d-lg-block" />Ujian Nasional.<br class="d-none d-lg-block" /></p><a class="btn btn-lg btn-primary hover-top" href="#" role="button">Login</a>
+                        <p class="mt-4 mb-5 fs-1 lh-base">Melatih pemahaman materi, <br class="d-none d-lg-block" />Ujian Nasional.<br class="d-none d-lg-block" /></p>
+                        <a class="btn btn-lg btn-primary hover-top" href="<?php echo base_url('/pages/login'); ?>" role="button">Login</a>
                     </div>
                 </div>
             </div>

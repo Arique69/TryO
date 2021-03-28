@@ -43,45 +43,28 @@
                             <th scope="col">No</th>
                             <th scope="col">NIP</th>
                             <th scope="col">Username</th>
-                            <th scope="col">Nama Depan</th>
-                            <th scope="col">Nama Belakang</th>
-                            <th scope="col">Pengampu Pelajaran</th>
+                            <th scope="col">Nama Guru</th>
+                            <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>0000012483219582</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Matematika</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>0000012483219583</td>
-                            <td>@fat</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Bahasa Indonesia</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>0000012483219584</td>
-                            <td>@twitter</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>IPA</td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($data as $g) :  ?>
+                            <tr>
+                                <th scope="row"><?= $no++ ?></th>
+                                <td><?= $g['NIP']; ?></td>
+                                <td><?= $g['username']; ?></td>
+                                <td><?= $g['nama_guru']; ?></td>
+                                <td><?= $g['email']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
             <div class="row">
                 <div class="col md-6">
-                    <button class="btn btn-primary btn-block mt-2" type="submit">Simpan</button>
-                </div>
-                <div class="col md-6">
-                    <button class="btn btn-warning btn-block mt-2" type="submit">Kembali</button>
+                    <a class="btn btn-warning btn-block mt-2" href="<?php echo base_url('/pages') ?>">Kembali</a>
                 </div>
             </div>
         </div>
