@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Mar 2021 pada 03.43
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.3.25
+-- Generation Time: Mar 28, 2021 at 07:00 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `guru`
+-- Table structure for table `guru`
 --
 
 CREATE TABLE `guru` (
@@ -50,10 +50,19 @@ CREATE TABLE `guru` (
   `nama_guru` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `guru`
+--
+
+INSERT INTO `guru` (`id_guru`, `username`, `password`, `email`, `NIP`, `nama_guru`) VALUES
+(1, 'Jondri', 'bebas', 'jondricute@gmail.com', '12345', 'Jondri Jondri'),
+(2, 'kormakyun', '111', 'mrbond123@gmail.com', '1345676', 'Dodi Biawak'),
+(3, 'akuphg', '121212', 'phg@gmail.com', '2098574390', 'pe ha ge');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jawaban_siswa`
+-- Table structure for table `jawaban_siswa`
 --
 
 CREATE TABLE `jawaban_siswa` (
@@ -66,7 +75,7 @@ CREATE TABLE `jawaban_siswa` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mata_pelajaran`
+-- Table structure for table `mata_pelajaran`
 --
 
 CREATE TABLE `mata_pelajaran` (
@@ -77,7 +86,7 @@ CREATE TABLE `mata_pelajaran` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `nilai`
+-- Table structure for table `nilai`
 --
 
 CREATE TABLE `nilai` (
@@ -92,7 +101,7 @@ CREATE TABLE `nilai` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `paket`
+-- Table structure for table `paket`
 --
 
 CREATE TABLE `paket` (
@@ -103,7 +112,7 @@ CREATE TABLE `paket` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siswa`
+-- Table structure for table `siswa`
 --
 
 CREATE TABLE `siswa` (
@@ -120,7 +129,7 @@ CREATE TABLE `siswa` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `soal`
+-- Table structure for table `soal`
 --
 
 CREATE TABLE `soal` (
@@ -137,7 +146,7 @@ CREATE TABLE `soal` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tryout`
+-- Table structure for table `tryout`
 --
 
 CREATE TABLE `tryout` (
@@ -153,19 +162,19 @@ CREATE TABLE `tryout` (
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indeks untuk tabel `guru`
+-- Indexes for table `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id_guru`);
 
 --
--- Indeks untuk tabel `jawaban_siswa`
+-- Indexes for table `jawaban_siswa`
 --
 ALTER TABLE `jawaban_siswa`
   ADD PRIMARY KEY (`id_jawaban_siswa`),
@@ -173,13 +182,13 @@ ALTER TABLE `jawaban_siswa`
   ADD KEY `fk_jawabansiswa_soal` (`id_soal`);
 
 --
--- Indeks untuk tabel `mata_pelajaran`
+-- Indexes for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
   ADD PRIMARY KEY (`id_mata_pelajaran`);
 
 --
--- Indeks untuk tabel `nilai`
+-- Indexes for table `nilai`
 --
 ALTER TABLE `nilai`
   ADD PRIMARY KEY (`id_nilai`),
@@ -187,26 +196,26 @@ ALTER TABLE `nilai`
   ADD KEY `fk_nilai_tryout` (`id_tryout`);
 
 --
--- Indeks untuk tabel `paket`
+-- Indexes for table `paket`
 --
 ALTER TABLE `paket`
   ADD PRIMARY KEY (`id_paket`);
 
 --
--- Indeks untuk tabel `siswa`
+-- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id_siswa`);
 
 --
--- Indeks untuk tabel `soal`
+-- Indexes for table `soal`
 --
 ALTER TABLE `soal`
   ADD PRIMARY KEY (`id_soal`),
   ADD KEY `fk_soal_matapelajaran` (`id_mata_pelajaran`);
 
 --
--- Indeks untuk tabel `tryout`
+-- Indexes for table `tryout`
 --
 ALTER TABLE `tryout`
   ADD PRIMARY KEY (`id_tryout`),
@@ -214,89 +223,89 @@ ALTER TABLE `tryout`
   ADD KEY `fk_tryout_matapelajaran` (`id_mata_pelajaran`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `guru`
+-- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_guru` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `jawaban_siswa`
+-- AUTO_INCREMENT for table `jawaban_siswa`
 --
 ALTER TABLE `jawaban_siswa`
   MODIFY `id_jawaban_siswa` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `mata_pelajaran`
+-- AUTO_INCREMENT for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
   MODIFY `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `nilai`
+-- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
   MODIFY `id_nilai` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `paket`
+-- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id_paket` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `siswa`
+-- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
   MODIFY `id_siswa` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `soal`
+-- AUTO_INCREMENT for table `soal`
 --
 ALTER TABLE `soal`
   MODIFY `id_soal` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tryout`
+-- AUTO_INCREMENT for table `tryout`
 --
 ALTER TABLE `tryout`
   MODIFY `id_tryout` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `jawaban_siswa`
+-- Constraints for table `jawaban_siswa`
 --
 ALTER TABLE `jawaban_siswa`
   ADD CONSTRAINT `fk_jawabansiswa_soal` FOREIGN KEY (`id_soal`) REFERENCES `soal` (`id_soal`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_jawabansiswa_tryout` FOREIGN KEY (`id_tryout`) REFERENCES `tryout` (`id_tryout`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `nilai`
+-- Constraints for table `nilai`
 --
 ALTER TABLE `nilai`
   ADD CONSTRAINT `fk_nilai_siswa` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_nilai_tryout` FOREIGN KEY (`id_tryout`) REFERENCES `tryout` (`id_tryout`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `soal`
+-- Constraints for table `soal`
 --
 ALTER TABLE `soal`
   ADD CONSTRAINT `fk_soal_matapelajaran` FOREIGN KEY (`id_mata_pelajaran`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tryout`
+-- Constraints for table `tryout`
 --
 ALTER TABLE `tryout`
   ADD CONSTRAINT `fk_tryout_matapelajaran` FOREIGN KEY (`id_mata_pelajaran`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
