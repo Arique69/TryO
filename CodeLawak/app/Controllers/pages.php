@@ -26,9 +26,9 @@ class pages extends BaseController
         echo view('template/header');
         echo view('Output_guru');
     }
-    public function Input_mahasiswa()
+    public function input_siswa()
     {
         echo view('template/header');
-        echo view('input_mahasiswa');
+        echo view('input_siswa');
     }
 }
