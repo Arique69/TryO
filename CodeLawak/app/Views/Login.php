@@ -173,10 +173,19 @@
                         <div class="row px-3"> <label class="mb-1">
                                 <h6 class="mb-0 text-sm">Password</h6>
                             </label> <input type="password" name="password" placeholder="Enter password"> </div>
-                        <div class="row px-3 mb-4">
+                        <div class="row px-3 mb-2">
                             <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> </div>
                         </div>
-                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-lg btn-primary hover-top">Login</button> </div>
+                        <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Masuk Sebagai </h6>
+                        </label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Pilih</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Guru">Guru</option>
+                            <option value="Siswa">Siswa</option>
+                        </select>
+                        <div class="row mb-3 px-3 mt-5"> <button type="submit" class="btn btn-lg btn-primary hover-top">Login</button> </div>
                     </div>
                 </div>
             </div>
