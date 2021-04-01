@@ -66,7 +66,6 @@ class pages extends BaseController
     {
         # code...
         $nama = $this->request->getPost('nama');
-        // $id = $this->request->getPost('id');
         $email = $this->request->getPost('email');
         $nip = $this->request->getPost('nip');
         $username = $this->request->getPost('username');
