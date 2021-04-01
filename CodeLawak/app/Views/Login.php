@@ -181,9 +181,9 @@
                         </label>
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Pilih</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Guru">Guru</option>
-                            <option value="Siswa">Siswa</option>
+                            <option value="Admin"> Admin</option>
+                            <option value="Guru"> Guru</option>
+                            <option value="Siswa"> Siswa</option>
                         </select>
                         <div class="row mb-3 px-3 mt-5"> <button type="submit" class="btn btn-lg btn-primary hover-top">Login</button> </div>
                     </div>
