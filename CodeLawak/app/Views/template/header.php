@@ -10,19 +10,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
     <title>TryO - Tryout berbasis online</title>
     <style>
-          body {
+        body {
             height: 100%;
             font-size: 1rem;
             font-family: 'Montserrat', sans-serif;
         }
 
         #gradient {
-            background: #536976;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to top, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to top, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #536976;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, #292E49, #536976);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #292E49, #536976);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
 
         a {
@@ -33,7 +37,8 @@
         html {
             scroll-behavior: smooth;
         }
-        #username{
+
+        #username {
             color: white;
 
         }
@@ -46,12 +51,12 @@
             <a class="navbar-brand" href="#"><img src=<?= base_url('img/tryoA.png') ?> alt="" style="width: 15%;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-             </button>
-               
+            </button>
+
 
             <div class="collapse navbar-collapse fixed-top position-relative justify-content-end" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">                           
+                    <li class="nav-item">
                         <b><a href="#" class="link-light" id="username">Username</a></b>
                     </li>
                 </ul>

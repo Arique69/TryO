@@ -82,4 +82,19 @@ class pages extends BaseController
         $this->Guru->input_guru($data);
         return redirect()->to(base_url('/pages/Output_guru'));
     }
+    public function menu_siswa()
+    {
+        echo view('template/header');
+        echo view('menusiswa');
+    }
+    public function menu_admin()
+    {
+        echo view('template/header');
+        echo view('menuadmin');
+    }
+    public function menu_guru()
+    {
+        echo view('template/header');
+        echo view('menuguru');
+    }
 }
