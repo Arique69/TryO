@@ -45,7 +45,7 @@
 
 
                             <button type="submit" class="btn btn-xl btn-secondary mt-3">Simpan dan tambahkan</button>
-                            <button type="submit" class="btn btn-xl btn-warning mt-3">Kembali ke menu</button>
+                            <a type="submit" class="btn btn-xl btn-warning mt-3" href="<?php echo base_url('/pages'); ?>">Kembali ke menu</a>
                         </form>
                     </div>
 

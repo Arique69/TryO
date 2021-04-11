@@ -49,7 +49,7 @@ class pages extends BaseController
     {
         # code...
         echo view('template/header');
-        echo view('kerjakan_soal');
+        echo view('kerjakansoal');
     }
     public function ganti_pass()
     {
