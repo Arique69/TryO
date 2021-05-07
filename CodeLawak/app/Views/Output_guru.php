@@ -11,6 +11,7 @@
 
     <!-- judul -->
     <title>Input Data Guru</title>
+    <!-- ini css -->
     <style>
         body {
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
@@ -29,6 +30,7 @@
         <div class="container">
             <script>
                 // Basic example
+                //mengambil data dari database
                 $(document).ready(function() {
                     $('#dtBasicExample').DataTable({
                         "searching": false // false to disable search (or any other option)
@@ -49,6 +51,7 @@
                     </thead>
                     <tbody>
                         <?php
+                        //untuk menampilkan data dari database
                         $no = 1;
                         foreach ($data as $g) :  ?>
                             <tr>
@@ -62,6 +65,7 @@
                     </tbody>
                 </table>
             </div>
+            <!-- button Kembali -->
             <div class="row">
                 <div class="col md-6">
                     <a class="btn btn-warning btn-block mt-2" href="<?php echo base_url('/pages') ?>">Kembali</a>
