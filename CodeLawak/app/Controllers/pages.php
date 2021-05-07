@@ -55,7 +55,7 @@ class pages extends BaseController
     {
         # code...
         echo view('template/header');
-        echo view('test');
+        echo view('ganti_password');
     }
     public function login()
     {
