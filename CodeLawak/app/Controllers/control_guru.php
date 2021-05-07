@@ -51,20 +51,26 @@ class control_guru extends BaseController
         //validasi input berupa aturan dan error messagenya
         if(!$this->validate([
             'nama' => [
+                // rules untuk field nama
                 'rules' =>'required',
+                // message error untuk field nama
                 'errors' =>[
                     'required' => 'nama harus diisi.'
                 ]
             ],
             'email' => [
+                // rules untuk field email
                 'rules' =>'required',
+                // message error untuk field email
                 'errors' =>[
                     'required' => 'email harus diisi.'
                 ]
             ],
 
             'nip' => [
+                // rules untuk field nip
                 'rules' =>'required|is_unique[guru.NIP]',
+                // message error untuk field nip
                 'errors' =>[
                     'required' => 'NIP harus diisi.',
                     'is_unique' => 'NIP telah terdaftar, masukan NIP yang berbeda'
@@ -72,7 +78,9 @@ class control_guru extends BaseController
             ],
 
             'username' => [
+                // rules untuk field username
                 'rules' =>'required|is_unique[guru.username]',
+                // message error untuk field username
                 'errors' =>[
                     'required' => 'Username harus diisi.',
                     'is_unique' => 'Username telah terdaftar, masukan Username yang berbeda'
@@ -80,7 +88,9 @@ class control_guru extends BaseController
             ],
             
             'password' => [
+                // rules untuk field password
                 'rules' =>'required|min_length[5]',
+                // message error untuk field password
                 'errors' =>[
                     'required' => 'Password harus diisi.',
                     'min_length' => 'masukan minimal 5 karakter Password'

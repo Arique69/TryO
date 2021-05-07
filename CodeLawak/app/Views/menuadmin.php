@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 
+<!-- ini menu admin -->
 <head>
+    <!-- css internal -->
     <style>
         body {
+            /* mengubah background image */
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
             background-repeat: no-repeat;
             background-size: cover;
@@ -12,6 +15,7 @@
 </head>
 
 <body>
+    <!-- container untuk body -->
     <div class="container" style="margin-top:200px" id="form">
         <h3 class="mb-3"><b>Menu Admin</b></h3>
         <div class="row">
@@ -21,6 +25,7 @@
             <div class="alert alert-warning mb-3">
                 <b>Silakan pilih menu untuk menggunakan fungsi </b>
             </div>
+            <!-- card untuk Manage guru -->
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
@@ -29,6 +34,7 @@
                     </div>
                 </div>
             </div>
+             <!-- card untuk Manage Siswa -->
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
