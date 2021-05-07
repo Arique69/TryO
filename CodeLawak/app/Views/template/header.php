@@ -1,16 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanber - Latihan Bootstrap</title>
+    <!-- <linkrel="stylesheethref="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />" -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">  
+      
+    
+    <!-- <link rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"> -->
 
     <title>TryO - Tryout berbasis online</title>
     <style>
@@ -38,28 +42,29 @@
             scroll-behavior: smooth;
         }
 
-        #username {
-            color: white;
-
-        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="gradient">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src=<?= base_url('img/tryoA.png') ?> alt="" style="width: 15%;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!--Navbar top-->
+    <div class="d-flex justify-content-end bg-dark">
+      <ul class="nav nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: white">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: white">Contact Admin</a>
+        </li>
+      </ul>
+    </div>
 
-
-            <div class="collapse navbar-collapse fixed-top position-relative justify-content-end" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <b><a href="#" class="link-light" id="username">Username</a></b>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!--Navbar Middle-->
+    <div
+      class="navbar navbar-expand-sm navbar-light justify-content-between"
+      style="background-color: #98bbd3" id="gradient"
+    >
+      <a class="navbar-brand" href="#"
+        ><img src=<?= base_url('img/tryoA.png') ?> alt="" style="width: 150px; margin-left:50px"
+      /></a>
+      <h5 style="color: white; margin-right:50px">Username</h5>
+    </div>
