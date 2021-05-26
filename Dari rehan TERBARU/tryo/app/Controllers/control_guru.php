@@ -30,6 +30,7 @@ class control_guru extends BaseController
         $data = [
             'validation' => \Config\Services::validation()
         ];
+
         echo view('template/header');
         echo view('kelolaguru',$data);
     }

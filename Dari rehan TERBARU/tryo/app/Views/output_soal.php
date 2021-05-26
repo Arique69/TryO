@@ -13,7 +13,7 @@
     <link rel="styleshet" href="gaya.css">
 
     <!-- judul -->
-    <title>Input Data Guru</title>
+    <title>Input Data Soal</title>
     <style>
         body {
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
@@ -40,7 +40,7 @@
         </div>
         <div class="container">
             <!-- ini nambah tombol kelola guru -->
-            <a href="<?php echo base_url('control_siswa/kelolasiswa') ?>" class="btn btn-success mt-3 mb-3">Tambah Siswa</a>
+            <a href="<?php echo base_url('control_soal/kelolasoal') ?>" class="btn btn-success mt-3 mb-3">Tambah Soal</a>
             <!-- searching bar -->
             <!-- <input type="text" id="searchbar" onkeyup="filtertable()" placeholder="Search for names.." class=""> -->
             <!-- buat nambah flash data -->
