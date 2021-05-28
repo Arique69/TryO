@@ -1,0 +1,170 @@
+<?php
+
+namespace App\Controllers;
+use App\Models\Siswa;
+use Config\Services;
+
+class control_siswa extends BaseController
+{
+    protected $siswa;
+    public function __construct()
+    {
+        $this->siswa = new Siswa();
+    }
+    
+	public function index()
+	{
+        $data['siswa'] = $this->siswa->ambil_siswa();
+        //$data = $guru->ambil_guru();
+        // dd($data);
+        echo view('template/header');
+        echo view('output_siswa',$data);
+	}
+
+    public function kelolasiswa()
+    {
+        session();
+        $data = [
+            'validation' => \Config\Services::validation()
+        ];
+        echo view('template/header');
+        echo view('kelolasiswa',$data);
+    }
+
+    // function yang melakukan CRUD
+    public function insert_siswa()
+    {
+        //validasi input
+        if(!$this->validate([
+            'nama' => [
+                'rules' =>'required',
+                'errors' =>[
+                    'required' => 'nama harus diisi.'
+                ]
+            ],
+            'email' => [
+                'rules' =>'required',
+                'errors' =>[
+                    'required' => 'email harus diisi.'
+                ]
+            ],
+
+            'nisn' => [
+                'rules' =>'required|is_unique[siswa.NISN]',
+                'errors' =>[
+                    'required' => 'NISN harus diisi.',
+                    'is_unique' => 'NISN telah terdaftar, masukan NISN yang berbeda'
+                ]
+            ],
+
+            'username' => [
+                'rules' =>'required|is_unique[siswa.username]',
+                'errors' =>[
+                    'required' => 'Username harus diisi.',
+                    'is_unique' => 'Username telah terdaftar, masukan Username yang berbeda'
+                ]
+            ],
+            
+            'password' => [
+                'rules' =>'required|min_length[5]',
+                'errors' =>[
+                    'required' => 'Password harus diisi.',
+                    'min_length' => 'masukan minimal 5 karakter Password'
+                ]
+            ],
+
+            'password' => [
+                'rules' =>'required|min_length[5]',
+                'errors' =>[
+                    'required' => 'Password harus diisi.',
+                    'min_length' => 'masukan minimal 5 karakter Password'
+                ]
+            ],
+
+            'TTL' => [
+                'rules' =>'required',
+                'errors' =>[
+                    'required' => 'Tanngal lahir harus diisi.'
+                ]
+            ],
+
+
+
+
+        ])){
+            $validation = \Config\Services::validation();
+            return redirect()->to(base_url('control_siswa/kelolasiswa'))->withInput()->with('validation', $validation);
+        }
+
+
+        $nama = $this->request->getPost('nama');
+        $email = $this->request->getPost('email');
+        $nisn = $this->request->getPost('nisn');
+        $kelas = $this->request->getPost('kelas');
+        $jenis_kelamin = $this->request->getPost('jenis_kelamin');
+        $TTL = $this->request->getPost('TTL');
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+
+        $data = [
+            'email' => $email,
+            'NISN' => $nisn,
+            'kelas' => $kelas,
+            'jenis_kelamin' => $jenis_kelamin,
+            'TTL' => $TTL,
+            'username' => $username,
+            'password' => $password,
+            'nama_siswa' => $nama,
+            'status_login' => 0
+        ];
+
+        $this->siswa->input_siswa($data);
+        session()->setFlashdata('pesan','data berhasil ditambahkan');
+        return redirect()->to(base_url('control_siswa'));
+    }
+
+    public function delete_siswa($id){
+        $this->siswa->deletesiswa($id);
+        session()->setFlashdata('pesan','data berhasil dihapus');
+        return redirect()->to(base_url('control_siswa'));
+    }
+
+    public function update_siswa($id){
+        // $data['guru'] = $this->guru->where(['id_guru', $id]);
+        // dd($data);
+        $data['siswa'] = $this->siswa->getSiswa($id);
+        // $data['guru'] = $this->guru->getGuru($id);
+        // $data['guru'] = $this->guru->where('id_guru', $id);
+        echo view('template/header');
+        echo view('update_siswa',$data);
+    }
+
+    public function updatesiswa(){
+        $id =  $this->request->getPost('id_siswa');
+        $nama = $this->request->getPost('nama');
+        $email = $this->request->getPost('email');
+        $nisn = $this->request->getPost('nisn');
+        $kelas = $this->request->getPost('kelas');
+        $jenis_kelamin = $this->request->getPost('jenis_kelamin');
+        $TTL = $this->request->getPost('TTL');
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+
+        $data = [
+            'email' => $email,
+            'NISN' => $nisn,
+            'kelas' => $kelas,
+            'jenis_kelamin' => $jenis_kelamin,
+            'TTL' => $TTL,
+            'username' => $username,
+            'password' => $password,
+            'nama_siswa' => $nama,
+            'status_login' => 0
+        ];
+
+        $this->siswa->updatesiswayaha($data,$id);
+        session()->setFlashdata('pesan','data berhasil diubah');
+        return redirect()->to(base_url('control_siswa'));
+    }
+
+}

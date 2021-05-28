@@ -13,7 +13,7 @@
     <link rel="styleshet" href="gaya.css">
 
     <!-- judul -->
-    <title>Input Data Guru</title>
+    <title>Daftar Mata Pelajaran</title>
     <style>
         body {
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
@@ -36,11 +36,11 @@
     <!-- page bawahnya -->
     <div class="container" style="margin-top: 100px;">
         <div class="row">
-            <h1> Daftar Data Guru </h1>
+            <h1> Daftar Mata Pelajaran </h1>
         </div>
         <div class="container">
             <!-- ini nambah tombol kelola guru -->
-            <a href="<?php echo base_url('control_guru/kelolaguru') ?>" class="btn btn-success mt-3 mb-3">Tambah Guru</a>
+            <a href="<?php echo base_url('control_mapel/kelola_mapel') ?>" class="btn btn-success mt-3 mb-3">Tambah Mata Pelajaran</a>
             <!-- searching bar -->
             <!-- <input type="text" id="searchbar" onkeyup="filtertable()" placeholder="Search for names.." class=""> -->
             <!-- buat nambah flash data -->
@@ -53,11 +53,8 @@
                 <table id="table_id" class="display table table-striped table-bordered table-sm mt-3">
                     <thead class="thead-light">
                         <tr>
-                            <th>No</th>
-                            <th>NIP</th>
-                            <th>Username</th>
-                            <th>Nama Guru</th>
-                            <th>Email</th>
+                            <th>no</th>
+                            <th>Mata Pelajaran</th>
                             <th>Hapus</th>
                             <th>Update</th>
                         </tr>
@@ -65,15 +62,12 @@
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($guru as $g) :  ?>
+                        foreach ($mata_pelajaran as $m) :  ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $g['NIP']; ?></td>
-                                <td><?= $g['username']; ?></td>
-                                <td><?= $g['nama_guru']; ?></td>
-                                <td><?= $g['email']; ?></td>
-                                <td><a href="<?php echo base_url('control_guru/delete_guru/' . $g['id_guru']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
-                                <td><a href="<?php echo base_url('control_guru/update_guru/' . $g['id_guru']); ?>" class="btn btn-warning btn-block">edit</a></td>
+                                <td><?= $m['nama_mata_pelajaran']; ?></td>
+                                <td><a href="<?php echo base_url('control_mapel/delete_mapel/' . $m['id_mata_pelajaran']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
+                                <td><a href="<?php echo base_url('control_mapel/update_mapel/' . $m['id_mata_pelajaran']); ?>" class="btn btn-warning btn-block">edit</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -81,7 +75,7 @@
             </div>
             <div class="row">
                 <div class="col md-6">
-                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menuAdmin') ?>">Kembali</a>
+                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menuGuru') ?>">Kembali</a>
                 </div>
             </div>
         </div>

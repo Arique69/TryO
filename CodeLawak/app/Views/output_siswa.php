@@ -36,11 +36,11 @@
     <!-- page bawahnya -->
     <div class="container" style="margin-top: 100px;">
         <div class="row">
-            <h1> Daftar Data Guru </h1>
+            <h1> Daftar Data Siswa </h1>
         </div>
         <div class="container">
             <!-- ini nambah tombol kelola guru -->
-            <a href="<?php echo base_url('control_guru/kelolaguru') ?>" class="btn btn-success mt-3 mb-3">Tambah Guru</a>
+            <a href="<?php echo base_url('control_siswa/kelolasiswa') ?>" class="btn btn-success mt-3 mb-3">Tambah Siswa</a>
             <!-- searching bar -->
             <!-- <input type="text" id="searchbar" onkeyup="filtertable()" placeholder="Search for names.." class=""> -->
             <!-- buat nambah flash data -->
@@ -53,11 +53,14 @@
                 <table id="table_id" class="display table table-striped table-bordered table-sm mt-3">
                     <thead class="thead-light">
                         <tr>
-                            <th>No</th>
-                            <th>NIP</th>
+                            <th>no</th>
+                            <th>NISN</th>
                             <th>Username</th>
-                            <th>Nama Guru</th>
+                            <th>Nama Siswa</th>
                             <th>Email</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Tempat, Tanggal Lahir</th>
+                            <th>Kelas</th>
                             <th>Hapus</th>
                             <th>Update</th>
                         </tr>
@@ -65,15 +68,18 @@
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($guru as $g) :  ?>
+                        foreach ($siswa as $s) :  ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $g['NIP']; ?></td>
-                                <td><?= $g['username']; ?></td>
-                                <td><?= $g['nama_guru']; ?></td>
-                                <td><?= $g['email']; ?></td>
-                                <td><a href="<?php echo base_url('control_guru/delete_guru/' . $g['id_guru']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
-                                <td><a href="<?php echo base_url('control_guru/update_guru/' . $g['id_guru']); ?>" class="btn btn-warning btn-block">edit</a></td>
+                                <td><?= $s['NISN']; ?></td>
+                                <td><?= $s['username']; ?></td>
+                                <td><?= $s['nama_siswa']; ?></td>
+                                <td><?= $s['email']; ?></td>
+                                <td><?= $s['jenis_kelamin']; ?></td>
+                                <td><?= $s['TTL']; ?></td>
+                                <td><?= $s['kelas']; ?></td>
+                                <td><a href="<?php echo base_url('control_siswa/delete_siswa/' . $s['id_siswa']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
+                                <td><a href="<?php echo base_url('control_siswa/update_siswa/' . $s['id_siswa']); ?>" class="btn btn-warning btn-block">edit</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

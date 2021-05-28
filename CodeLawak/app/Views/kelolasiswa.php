@@ -26,22 +26,44 @@
                             <b>isi data</b> - pastikan semua data terisi
                         </div>
                         <!-- validation -->
-                        <form action="<?php echo base_url('control_guru/insert_guru'); ?>" method="post">
+                        <form action="<?php echo base_url('control_siswa/insert_siswa'); ?>" method="post">
                             <!-- supaya input page hanya bisa di page ini saja -->
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan nama siswa</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" placeholder="Nama guru" id="nama" name="nama">
+                                <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" placeholder="Nama siswa" id="nama" name="nama">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('nama') ?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="nip">Masukan NIP</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('nip')) ? 'is-invalid' : '' ?>" placeholder="NIP" id="nip" name="nip">
+                                <label for="nip">Masukan NISN</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('nisn')) ? 'is-invalid' : '' ?>" placeholder="NISN" id="nisn" name="nisn">
                                 <div class="invalid-feedback">
-                                    <?= $validation->getError('nip') ?>
+                                    <?= $validation->getError('nisn') ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="kelas">Pilih Kelas : </label>
+                                <select name="kelas" id="kelas" class="form-control">
+                                    <option value="6A" selected>6A</option>
+                                    <option value="6B">6B</option>
+                                    <option value="6C">6C</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis_kelamin">Pilih Jenis Kelamin  : </label>
+                                <select name="jenis_kelamin" id="jenis Kelamin" class="form-control">
+                                    <option value="perempuan" selected>Perempuan</option>
+                                    <option value="laki-laki">Laki - laki</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Tanggal lahir</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('TTL')) ? 'is-invalid' : '' ?>" placeholder="Tanggal Lahir" id="TTL" name="TTL">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('TTL') ?>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -68,14 +90,14 @@
 
 
                             <button type="submit" class="btn btn-xl btn-secondary mt-3">Simpan dan tambahkan</button>
-                            <a type="button" class="btn btn-xl btn-warning mt-3" href="<?php echo base_url('control_guru'); ?>">Kembali ke menu</a>
+                            <a type="button" class="btn btn-xl btn-warning mt-3" href="<?php echo base_url('control_siswa'); ?>">Kembali ke menu</a>
                         </form>
                     </div>
 
                 </div>
             </div>
             <div class="col-sm-4">
-                <img src="<?= base_url('img/input.png') ?>" style="width: 150%;">
+                <img src="<?//= base_url('img/input.png') ?>" style="width: 150%;">
             </div>
         </div>
     </div>

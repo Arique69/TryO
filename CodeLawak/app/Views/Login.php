@@ -7,6 +7,7 @@
     <title>Login Menu</title>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+    <!-- ini css -->
     <style>
         body {
             color: #000;
@@ -157,35 +158,46 @@
             <div class="row d-flex">
                 <div class="col-lg-6">
                     <div class="card1 pb-5">
+                        <!-- untuk manampilkan gambar untuk logo dan logo tutwuri -->
                         <div class="row"> <img src=<?= base_url('img/logo.png') ?> class="logo"> </div>
                         <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src=<?= base_url('img/Tutwuri.png') ?> class="image"> </div>
                     </div>
                 </div>
+                <!-- card untuk form login -->
                 <div class="col-lg-6">
                     <div class="card2 card border-0 px-4 py-5">
                         <div class="row mb-4 px-3">
                         </div>
                         <div class="row px-3 mb-4">
                         </div>
-                        <div class="row px-3"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Username</h6>
-                            </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid username"> </div>
-                        <div class="row px-3"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Password</h6>
-                            </label> <input type="password" name="password" placeholder="Enter password"> </div>
-                        <div class="row px-3 mb-2">
-                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> </div>
-                        </div>
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Masuk Sebagai </h6>
-                        </label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Pilih</option>
-                            <option value="Admin"> Admin</option>
-                            <option value="Guru"> Guru</option>
-                            <option value="Siswa"> Siswa</option>
-                        </select>
-                        <div class="row mb-3 px-3 mt-5"> <button type="submit" class="btn btn-lg btn-primary hover-top">Login</button> </div>
+                        <?php if (session()->getFlashdata('msg')) : ?>
+                            <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+                        <?php endif; ?>
+                        <!-- untuk input username -->
+                        <form form action="<?php echo base_url('LoginController/auth'); ?>" method="post">
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Username</h6>
+                                </label> <input class="mb-4" type="text" name="username" placeholder="Enter a valid username"> </div>
+                            <!-- untuk input password -->
+                            <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Password</h6>
+                                </label> <input type="password" name="password" placeholder="Enter password"> </div>
+                            <div class="row px-3 mb-2">
+                                <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> </div>
+                            </div>
+                            <!-- untuk memilih masuk sebagai admin/guru/siswas -->
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Masuk Sebagai </h6>
+                            </label>
+                            <select class="form-select" aria-label="Default select example" name="role">
+                                <option selected>Pilih</option>
+                                <option value="Admin"> Admin</option>
+                                <option value="Guru"> Guru</option>
+                                <option value="Siswa"> Siswa</option>
+                            </select>
+                            <!-- button login -->
+                            <div class="row mb-3 px-3 mt-5"> <button type="submit" class="btn btn-lg btn-primary hover-top">Login</button> </div>
+                        </form>
                     </div>
                 </div>
             </div>
