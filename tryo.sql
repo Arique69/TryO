@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2021 at 07:00 PM
+-- Generation Time: May 28, 2021 at 04:43 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -35,6 +35,13 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`, `nama_admin`) VALUES
+(1, 'hafizh', '12345', 'hafizh69@gmail.com', 'hafizhkuy');
+
 -- --------------------------------------------------------
 
 --
@@ -47,17 +54,18 @@ CREATE TABLE `guru` (
   `password` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `NIP` varchar(20) NOT NULL,
-  `nama_guru` varchar(20) NOT NULL
+  `nama_guru` varchar(20) NOT NULL,
+  `status_login` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `username`, `password`, `email`, `NIP`, `nama_guru`) VALUES
-(1, 'Jondri', 'bebas', 'jondricute@gmail.com', '12345', 'Jondri Jondri'),
-(2, 'kormakyun', '111', 'mrbond123@gmail.com', '1345676', 'Dodi Biawak'),
-(3, 'akuphg', '121212', 'phg@gmail.com', '2098574390', 'pe ha ge');
+INSERT INTO `guru` (`id_guru`, `username`, `password`, `email`, `NIP`, `nama_guru`, `status_login`) VALUES
+(2, 'agus123', 'pw123', 'Agus@gmail.com', '19450819', 'Agus petarunk subank', '0'),
+(6, 'bobi123', 'register2', 'bobi@gmail.com', '19450811', 'bobi', '0'),
+(9, 'jondr1yespapa', 'register12', 'jon@gmail.com', '19450812', 'jon', '0');
 
 -- --------------------------------------------------------
 
@@ -82,6 +90,15 @@ CREATE TABLE `mata_pelajaran` (
   `id_mata_pelajaran` int(11) NOT NULL,
   `nama_mata_pelajaran` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mata_pelajaran`
+--
+
+INSERT INTO `mata_pelajaran` (`id_mata_pelajaran`, `nama_mata_pelajaran`) VALUES
+(1, 'IPA'),
+(2, 'Bahasa Indonesia'),
+(4, 'Bahasa Jepang');
 
 -- --------------------------------------------------------
 
@@ -109,6 +126,14 @@ CREATE TABLE `paket` (
   `nama_paket` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `paket`
+--
+
+INSERT INTO `paket` (`id_paket`, `nama_paket`) VALUES
+(1, 'Paket A'),
+(2, 'Paket B');
+
 -- --------------------------------------------------------
 
 --
@@ -119,12 +144,22 @@ CREATE TABLE `siswa` (
   `id_siswa` int(6) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `NISN` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `nama_siswa` varchar(30) NOT NULL,
   `TTL` varchar(20) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
-  `kelas` varchar(10) NOT NULL
+  `kelas` varchar(10) NOT NULL,
+  `status_login` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `siswa`
+--
+
+INSERT INTO `siswa` (`id_siswa`, `username`, `password`, `NISN`, `email`, `nama_siswa`, `TTL`, `jenis_kelamin`, `kelas`, `status_login`) VALUES
+(3, 'bobi123111', 'register11', '122', 'bobi222@gmail.com', 'bobi gehu pedas', '26 mei 200', 'laki-laki', '6C', '0'),
+(4, 'amakisaly', 'iamsally', '12232', 'salyprohedshot@gmail', 'saly', '16 mei 2000', 'perempuan', '6A', '0');
 
 -- --------------------------------------------------------
 
@@ -135,13 +170,26 @@ CREATE TABLE `siswa` (
 CREATE TABLE `soal` (
   `id_soal` int(6) NOT NULL,
   `id_mata_pelajaran` int(6) NOT NULL,
+  `id_paket` int(5) NOT NULL,
+  `nama_paket` varchar(50) NOT NULL,
+  `nama_mata_pelajaran` varchar(50) NOT NULL,
+  `gambar` text NOT NULL,
   `isi_soal` text NOT NULL,
   `opsi_a` text NOT NULL,
   `opsi_b` text NOT NULL,
   `opsi_c` text NOT NULL,
-  `opsi_d` text NOT NULL,
   `kunci_jawaban` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `soal`
+--
+
+INSERT INTO `soal` (`id_soal`, `id_mata_pelajaran`, `id_paket`, `nama_paket`, `nama_mata_pelajaran`, `gambar`, `isi_soal`, `opsi_a`, `opsi_b`, `opsi_c`, `kunci_jawaban`) VALUES
+(1, 1, 1, 'Paket A', 'IPA', '', 'Di bawah ini manakah yang termasuk energi yang bisa diperbaharui?', 'Bio Fuel', 'Minyak Tanah', 'Solar', 'A'),
+(3, 0, 0, 'Paket A', 'IPA', '', 'Penyebab longsor?', 'Penebangan liar', 'Konflik Agus vs Sayid', 'Kurangnya Pemasukan Kas Negara', 'A'),
+(5, 0, 0, 'Paket A', 'Bahasa Jepang', '', 'Hai', 'kebon', 'Api', 'air', 'B'),
+(6, 0, 0, 'Paket A', 'Bahasa Jepang', '', 'siapa dia?\r\n', 'yuhu', 'ramdan', 'dr ramdan?', 'C');
 
 -- --------------------------------------------------------
 
@@ -211,8 +259,7 @@ ALTER TABLE `siswa`
 -- Indexes for table `soal`
 --
 ALTER TABLE `soal`
-  ADD PRIMARY KEY (`id_soal`),
-  ADD KEY `fk_soal_matapelajaran` (`id_mata_pelajaran`);
+  ADD PRIMARY KEY (`id_soal`);
 
 --
 -- Indexes for table `tryout`
@@ -230,13 +277,13 @@ ALTER TABLE `tryout`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_guru` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `jawaban_siswa`
@@ -248,7 +295,7 @@ ALTER TABLE `jawaban_siswa`
 -- AUTO_INCREMENT for table `mata_pelajaran`
 --
 ALTER TABLE `mata_pelajaran`
-  MODIFY `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `nilai`
@@ -260,19 +307,19 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
-  MODIFY `id_paket` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paket` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_siswa` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `soal`
 --
 ALTER TABLE `soal`
-  MODIFY `id_soal` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_soal` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tryout`
@@ -297,12 +344,6 @@ ALTER TABLE `jawaban_siswa`
 ALTER TABLE `nilai`
   ADD CONSTRAINT `fk_nilai_siswa` FOREIGN KEY (`id_siswa`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_nilai_tryout` FOREIGN KEY (`id_tryout`) REFERENCES `tryout` (`id_tryout`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `soal`
---
-ALTER TABLE `soal`
-  ADD CONSTRAINT `fk_soal_matapelajaran` FOREIGN KEY (`id_mata_pelajaran`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tryout`
