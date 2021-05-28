@@ -6,31 +6,32 @@ use CodeIgniter\Model;
 
 class Guru extends Model
 {
-    //deklarasi variabel tabel yang dituju
     protected $table = 'guru';
-    //deklarasi variabel primary key di tabel guru
-    protected $primarykey = 'id_guru';
+    protected $primaryKey = 'id_guru';
 
-    //untuk mengambil semua data yang berada ditabel guru
     public function ambil_guru()
     {
-        return $this->db->table($this->table)->get()->getResultArray();
+        return $this->findAll();
     }
 
-    //melakukan insert ke tabel guru di database
     public function input_guru($data)
     {
         # code...
         return $this->db->table('guru')->insert($data);
     }
 
-    //melakukan delete data di guru di database
-    public function deleteguru($primarykey){
-        return $this->db->table($this->table)->delete(['id_guru' => $primarykey]);
+    public function deleteguru($primaryKey){
+        return $this->db->table($this->table)->delete(['id_guru' => $primaryKey]);
     }
 
-    //melakukan udapte data guru di tabel guru di database
-    public function updateguru($data, $primarykey){
-        return $this->db->table($this->table)->update($data, ['id_guru' => $primarykey]);
+    public function updateguruyaha($data, $primaryKey){
+        return $this->db->table($this->table)->update($data, ['id_guru' => $primaryKey]);
+    }
+
+    public function getGuru($primaryKey){
+        // return $this->db->table($this->table)->getWhere(['id_guru' => $primarykey], 1, 1);
+        // return $this->find($primarykey);
+        return $this->find($primaryKey);
+
     }
 }
