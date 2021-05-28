@@ -21,15 +21,18 @@ class Paket extends Model
         return $this->db->table('paket')->insert($data);
     }
 
-    public function delete_paket($primaryKey){
+    public function delete_paket($primaryKey)
+    {
         return $this->db->table($this->table)->delete(['id_paket' => $primaryKey]);
     }
 
-    public function get_paket($primaryKey){
+    public function get_paket($primaryKey)
+    {
         return $this->find($primaryKey);
     }
 
-    public function update_paket($data, $primaryKey){
+    public function update_paket($data, $primaryKey)
+    {
         return $this->db->table($this->table)->update($data, ['id_paket' => $primaryKey]);
     }
 }

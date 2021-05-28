@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Mata_pelajaran;
 use Config\Services;
 
@@ -13,11 +14,11 @@ class control_mapel extends BaseController
     }
 
     public function index()
-	{
+    {
         $data['mata_pelajaran'] = $this->mata_pelajaran->ambil_mapel();
         echo view('template/header');
-        echo view('output_mapel',$data);
-	}
+        echo view('output_mapel', $data);
+    }
 
     public function kelola_mapel()
     {
@@ -26,21 +27,21 @@ class control_mapel extends BaseController
             'validation' => \Config\Services::validation()
         ];
         echo view('template/header');
-        echo view('kelola_mapel',$data);
+        echo view('kelola_mapel', $data);
     }
 
     // function yang melakukan CRUD
     public function insert_mapel()
     {
         //validasi input
-        if(!$this->validate([
+        if (!$this->validate([
             'mata_pelajaran' => [
-                'rules' =>'required',
-                'errors' =>[
+                'rules' => 'required',
+                'errors' => [
                     'required' => 'mata pelajaran harus diisi.'
                 ]
             ],
-        ])){
+        ])) {
             $validation = \Config\Services::validation();
             return redirect()->to(base_url('control_mapel/kelola_mapel'))->withInput()->with('validation', $validation);
         }
@@ -53,23 +54,26 @@ class control_mapel extends BaseController
         ];
 
         $this->mata_pelajaran->input_mapel($data);
-        session()->setFlashdata('pesan','data berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'data berhasil ditambahkan');
         return redirect()->to(base_url('control_mapel'));
     }
 
-    public function delete_mapel($id){
+    public function delete_mapel($id)
+    {
         $this->mata_pelajaran->delete_mapel($id);
-        session()->setFlashdata('pesan','data berhasil dihapus');
+        session()->setFlashdata('pesan', 'data berhasil dihapus');
         return redirect()->to(base_url('control_mapel'));
     }
 
-    public function update_mapel($id){
+    public function update_mapel($id)
+    {
         $data['mata_pelajaran'] = $this->mata_pelajaran->get_mapel($id);
         echo view('template/header');
-        echo view('update_mapel',$data);
+        echo view('update_mapel', $data);
     }
 
-    public function updatemapel(){
+    public function updatemapel()
+    {
         $id =  $this->request->getPost('id_mata_pelajaran');
         $mata_pelajaran = $this->request->getPost('mata_pelajaran');
 
@@ -77,10 +81,8 @@ class control_mapel extends BaseController
             'nama_mata_pelajaran' => $mata_pelajaran,
         ];
 
-        $this->mata_pelajaran->update_mata_pelajaran($data,$id);
-        session()->setFlashdata('pesan','data berhasil diubah');
+        $this->mata_pelajaran->update_mata_pelajaran($data, $id);
+        session()->setFlashdata('pesan', 'data berhasil diubah');
         return redirect()->to(base_url('control_mapel'));
     }
-    
-	
 }

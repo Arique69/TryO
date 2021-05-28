@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Soal;
 use App\Models\Mata_pelajaran;
 use App\Models\Paket;
@@ -20,11 +21,11 @@ class control_soal extends BaseController
     }
 
     public function index()
-	{
+    {
         $data['soal'] = $this->soal->ambil_soal();
         echo view('template/header');
-        echo view('output_soal',$data);
-	}
+        echo view('output_soal', $data);
+    }
 
     public function kelolasoal()
     {
@@ -34,9 +35,9 @@ class control_soal extends BaseController
         ];
         $data['paket'] = $this->paket->ambil_paket();
         $data['mapel'] = $this->mapel->ambil_mapel();
-        
+
         echo view('template/header');
-        echo view('kelolasoal',$data);
+        echo view('kelolasoal', $data);
     }
 
 
@@ -44,36 +45,36 @@ class control_soal extends BaseController
     public function insert_soal()
     {
         //validasi input
-        if(!$this->validate([
+        if (!$this->validate([
             'isi_soal' => [
-                'rules' =>'required',
-                'errors' =>[
+                'rules' => 'required',
+                'errors' => [
                     'required' => 'isi soal harus diisi.'
                 ]
             ],
             'opsi_a' => [
-                'rules' =>'required',
-                'errors' =>[
+                'rules' => 'required',
+                'errors' => [
                     'required' => 'Opsi A harus diisi.'
                 ]
             ],
 
             'opsi_b' => [
-                'rules' =>'required',
-                'errors' =>[
+                'rules' => 'required',
+                'errors' => [
                     'required' => 'Opsi B harus diisi.',
                 ]
             ],
 
             'opsi_c' => [
-                'rules' =>'required',
-                'errors' =>[
+                'rules' => 'required',
+                'errors' => [
                     'required' => 'Opsi C harus diisi.',
                 ]
             ],
 
 
-        ])){
+        ])) {
             $validation = \Config\Services::validation();
             return redirect()->to(base_url('control_soal/kelolasoal'))->withInput()->with('validation', $validation);
         }
@@ -100,25 +101,28 @@ class control_soal extends BaseController
         ];
 
         $this->soal->input_soal($data);
-        session()->setFlashdata('pesan','data berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'data berhasil ditambahkan');
         return redirect()->to(base_url('control_soal'));
     }
 
-    public function delete_soal($id){
+    public function delete_soal($id)
+    {
         $this->soal->deletesoal($id);
-        session()->setFlashdata('pesan','data berhasil dihapus');
+        session()->setFlashdata('pesan', 'data berhasil dihapus');
         return redirect()->to(base_url('control_soal'));
     }
 
-    public function update_soal($id){
+    public function update_soal($id)
+    {
         $data['soal'] = $this->soal->get_soal($id);
         $data['paket'] = $this->paket->ambil_paket();
         $data['mapel'] = $this->mapel->ambil_mapel();
         echo view('template/header');
-        echo view('update_soal',$data);
+        echo view('update_soal', $data);
     }
 
-    public function updatesoal(){
+    public function updatesoal()
+    {
         $id =  $this->request->getPost('id_soal');
         $nama_mata_pelajaran = $this->request->getPost('nama_mata_pelajaran');
         $nama_paket = $this->request->getPost('nama_paket');
@@ -140,9 +144,8 @@ class control_soal extends BaseController
             'kunci_jawaban' => $kunjaw
         ];
 
-        $this->soal->update_soal($data,$id);
-        session()->setFlashdata('pesan','data berhasil diubah');
+        $this->soal->update_soal($data, $id);
+        session()->setFlashdata('pesan', 'data berhasil diubah');
         return redirect()->to(base_url('control_soal'));
     }
-
 }

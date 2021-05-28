@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- container dengan informasi bahwa user sedang berada di menu guru -->
     <div class="container" style="margin-top:200px" id="form">
         <?php if (!empty(session()->getFlashdata('success'))) { ?>
             <?php echo session()->getFlashdata('success'); ?>
