@@ -2,6 +2,7 @@
 <html>
 
 <!-- ini menu admin -->
+
 <head>
     <!-- css internal -->
     <style>
@@ -39,7 +40,7 @@
                     </div>
                 </div>
             </div>
-             <!-- card untuk Manage Siswa -->
+            <!-- card untuk Manage Siswa -->
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">

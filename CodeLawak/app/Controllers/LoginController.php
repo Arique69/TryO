@@ -64,6 +64,7 @@ class LoginController extends BaseController
                         'username' => $log['username'],
                         'role' => 1
                     ];
+                    // $log = $this->update();
                     $session->set($session_data);
                     $session->setFlashdata('');
                     return redirect()->to(base_url('Home/menuGuru'));
@@ -85,6 +86,7 @@ class LoginController extends BaseController
                     $session_data = [
                         'id_siswa' => $log['id_siswa'],
                         'username' => $log['username'],
+                        'password' => $log['password'],
                         'role' => 2
                     ];
                     $session->set($session_data);

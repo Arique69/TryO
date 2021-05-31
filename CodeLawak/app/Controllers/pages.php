@@ -69,26 +69,26 @@ class pages extends BaseController
         echo view('Login');
     }
     //untuk menampilkan view input guru
-    public function insert_guru()
-    {
-        # code...
-        $nama = $this->request->getPost('nama');
-        $email = $this->request->getPost('email');
-        $nip = $this->request->getPost('nip');
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+    // public function insert_guru()
+    // {
+    //     # code...
+    //     $nama = $this->request->getPost('nama');
+    //     $email = $this->request->getPost('email');
+    //     $nip = $this->request->getPost('nip');
+    //     $username = $this->request->getPost('username');
+    //     $password = $this->request->getPost('password');
 
-        $data = [
-            // 'id' => $id,
-            'email' => $email,
-            'nip' => $nip,
-            'username' => $username,
-            'password' => $password,
-            'nama_guru' => $nama
-        ];
-        $this->Guru->input_guru($data);
-        return redirect()->to(base_url('/pages/Output_guru'));
-    }
+    //     $data = [
+    //         // 'id' => $id,
+    //         'email' => $email,
+    //         'nip' => $nip,
+    //         'username' => $username,
+    //         'password' => $password,
+    //         'nama_guru' => $nama
+    //     ];
+    //     $this->Guru->input_guru($data);
+    //     return redirect()->to(base_url('/pages/Output_guru'));
+    // }
     //untuk menampilkan view page siswa
     public function menu_siswa()
     {

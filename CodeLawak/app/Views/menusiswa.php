@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-key fa-10x mb-5"></i>
-                        <a href="<?= base_url('') ?>">
+                        <a href="<?= base_url('control_siswa/menu_pass') ?>">
                             <button class="btn btn-lg btn-block btn-primary mt-10">Ganti Password</button>
                         </a>
                     </div>
