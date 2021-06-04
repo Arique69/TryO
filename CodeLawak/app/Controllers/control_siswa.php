@@ -15,6 +15,9 @@ class control_siswa extends BaseController
 
     public function index()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['siswa'] = $this->siswa->ambil_siswa();
         //$data = $guru->ambil_guru();
         // dd($data);
@@ -24,6 +27,9 @@ class control_siswa extends BaseController
 
     public function kelolasiswa()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         session();
         $data = [
             'validation' => \Config\Services::validation()

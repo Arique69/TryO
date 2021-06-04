@@ -15,6 +15,9 @@ class control_guru extends BaseController
 
     public function index()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['guru'] = $this->guru->ambil_guru();
         //$data = $guru->ambil_guru();
         echo view('template/header');
@@ -28,6 +31,9 @@ class control_guru extends BaseController
 
     public function kelolaguru()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         session();
         $data = [
             'validation' => \Config\Services::validation()
@@ -40,6 +46,9 @@ class control_guru extends BaseController
     // function yang melakukan CRUD
     public function insert_guru()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         //validasi input
         if (!$this->validate([
             'nama' => [
@@ -106,6 +115,9 @@ class control_guru extends BaseController
     }
     public function delete_guru($id)
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $this->guru->deleteguru($id);
         session()->setFlashdata('pesan', 'data berhasil dihapus');
         return redirect()->to(base_url('control_guru'));
@@ -113,6 +125,9 @@ class control_guru extends BaseController
 
     public function update_guru($id)
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         // $data['guru'] = $this->guru->where(['id_guru', $id]);
         // dd($data);
         $data['guru'] = $this->guru->getGuru($id);
@@ -124,6 +139,9 @@ class control_guru extends BaseController
 
     public function updateguru()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $id =  $this->request->getPost('id_guru');
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');

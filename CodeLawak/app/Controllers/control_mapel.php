@@ -15,6 +15,9 @@ class control_mapel extends BaseController
 
     public function index()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['mata_pelajaran'] = $this->mata_pelajaran->ambil_mapel();
         echo view('template/header'); 
         echo view('output_mapel', $data);
@@ -22,6 +25,9 @@ class control_mapel extends BaseController
 
     public function kelola_mapel()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         session();
         $data = [
             'validation' => \Config\Services::validation()

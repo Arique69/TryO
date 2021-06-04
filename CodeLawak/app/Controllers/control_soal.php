@@ -22,6 +22,9 @@ class control_soal extends BaseController
 
     public function index()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['soal'] = $this->soal->ambil_soal();
         echo view('template/header');
         echo view('output_soal', $data);
@@ -29,6 +32,9 @@ class control_soal extends BaseController
 
     public function kelolasoal()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         session();
         $data = [
             'validation' => \Config\Services::validation()

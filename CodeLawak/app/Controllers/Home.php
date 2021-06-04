@@ -12,6 +12,9 @@ class Home extends BaseController
 	//untuk menampilkan menu admin sehabis login
 	public function menuAdmin()
 	{
+		if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
 		echo view('template/header');
 		if (session()->get('role') != 0) {
 			if (session()->get('role') == 1) {
@@ -25,6 +28,9 @@ class Home extends BaseController
 	//untuk menampilkan menu guru sehabis login
 	public function menuGuru()
 	{
+		if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
 		echo view('template/header');
 		if (session()->get('role') != 1) {
 			if (session()->get('role') == 0) {
@@ -38,6 +44,9 @@ class Home extends BaseController
 	//untuk menampilkan menu siswa sehabis login
 	public function menuSiswa()
 	{
+		if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
 		echo view('template/header');
 		if (session()->get('role') != 2) {
 			if (session()->get('role') == 0) {

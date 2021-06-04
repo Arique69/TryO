@@ -36,7 +36,8 @@ class LoginController extends BaseController
                     $session_data = [
                         'id_admin' => $log['id_admin'],
                         'username' => $log['username'],
-                        'role' => 0
+                        'role' => 0,
+                        'isLogin' => TRUE
                     ];
                     $session->set($session_data);
                     $session->setFlashdata('');
@@ -59,7 +60,8 @@ class LoginController extends BaseController
                     $session_data = [
                         'id_guru' => $log['id_guru'],
                         'username' => $log['username'],
-                        'role' => 1
+                        'role' => 1,
+                        'isLogin' => TRUE
                     ];
                     // $log = $this->update();
                     $session->set($session_data);
@@ -84,7 +86,8 @@ class LoginController extends BaseController
                         'id_siswa' => $log['id_siswa'],
                         'username' => $log['username'],
                         'password' => $log['password'],
-                        'role' => 2
+                        'role' => 2,
+                        'isLogin' => TRUE
                     ];
                     $session->set($session_data);
                     $session->setFlashdata('');

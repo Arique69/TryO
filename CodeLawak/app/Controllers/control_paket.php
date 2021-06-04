@@ -16,6 +16,9 @@ class control_paket extends BaseController
 
     public function index()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['paket'] = $this->paket->ambil_paket();
         echo view('template/header');
         echo view('output_paket', $data);
@@ -23,6 +26,9 @@ class control_paket extends BaseController
 
     public function kelola_paket()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         session();
         $data = [
             'validation' => \Config\Services::validation()
