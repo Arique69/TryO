@@ -21,17 +21,27 @@ class Soal extends Model
         return $this->db->table('soal')->insert($data);
     }
 
-    public function deletesoal($primaryKey){
+    public function deletesoal($primaryKey)
+    {
         return $this->db->table($this->table)->delete(['id_soal' => $primaryKey]);
     }
 
-    public function get_soal($primaryKey){
+    public function get_soal($primaryKey)
+    {
         return $this->find($primaryKey);
     }
 
-    public function update_soal($data, $primaryKey){
+    public function update_soal($data, $primaryKey)
+    {
         return $this->db->table($this->table)->update($data, ['id_soal' => $primaryKey]);
     }
 
-
+    public function acq_soal($mapel, $paket)
+    {
+        # code...
+        return $this->db->table($this->table)->where([
+            'nama_mata_pelajaran' => $mapel,
+            'nama_paket' => $paket
+        ]);
+    }
 }

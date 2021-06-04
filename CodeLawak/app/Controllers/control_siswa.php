@@ -2,20 +2,30 @@
 
 namespace App\Controllers;
 
+use App\Models\Mata_pelajaran;
+use App\Models\Paket;
 use App\Models\Siswa;
+use App\Models\Soal;
 use Config\Services;
 
 class control_siswa extends BaseController
 {
+    protected $soal;
+    protected $mapel;
+    protected $paket;
     protected $siswa;
+
     public function __construct()
     {
         $this->siswa = new Siswa();
+        $this->soal = new Soal();
+        $this->paket = new Paket();
+        $this->mapel = new Mata_pelajaran();
     }
 
     public function index()
     {
-        if (!session()->get('isLogin')){
+        if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
         $data['siswa'] = $this->siswa->ambil_siswa();
@@ -27,7 +37,7 @@ class control_siswa extends BaseController
 
     public function kelolasiswa()
     {
-        if (!session()->get('isLogin')){
+        if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
         session();
@@ -139,7 +149,7 @@ class control_siswa extends BaseController
 
     public function update_siswa($id)
     {
-        if (!session()->get('isLogin')){
+        if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
         // $data['guru'] = $this->guru->where(['id_guru', $id]);
@@ -214,7 +224,6 @@ class control_siswa extends BaseController
         $oldpass = $this->request->getPost('oldp');
         $newpass = $this->request->getPost('newp');
         $user_p = $this->request->getPost('user_p');
-        // dd($user_p);
         if ($user_p == $oldpass) {
             $data = [
                 'password' => $newpass
@@ -228,10 +237,6 @@ class control_siswa extends BaseController
                 'role' => 2
             ];
             $session->set($session_data);
-            $session('msg', 'data berhasil diubah');
-            // echo view('template/header');
-            // echo view('menusiswa');
-            // return redirect()->to(base_url('pages/menu_siswa'));
             return redirect()->to(base_url('pages/menu_siswa'));
         } else {
             session()->setFlashdata('pesan', 'konfirmasi password tidak sama');
@@ -241,10 +246,37 @@ class control_siswa extends BaseController
 
     public function menu_pass()
     {
-        if (!session()->get('isLogin')){
+        if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
         echo view('template/header');
         echo view('ganti_password');
+    }
+
+    public function prep_soal()
+    {
+        # code...
+        if (!session()->get('isLogin')) {
+            return redirect()->to(base_url('LoginController'));
+        }
+        $data['paket'] = $this->paket->ambil_paket();
+        $data['mapel'] = $this->mapel->ambil_mapel();
+        echo view('template/header');
+        echo view('prep_soal', $data);
+    }
+
+    public function kerja_soal()
+    {
+        # code...
+        if (!session()->get('isLogin')) {
+            return redirect()->to(base_url('LoginController'));
+        }
+        // ada kodingan buat ambil soal
+        $p_mapel = $this->request->getPost('nama_mata_pelajaran');
+        $p_paket = $this->request->getPost('nama_paket');
+        $data['soal'] = $this->soal->ambil_soal();
+        // dd($data['soal']);
+        echo view('template/header');
+        echo view('kerjakan_soal', $data);
     }
 }

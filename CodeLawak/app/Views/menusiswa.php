@@ -38,7 +38,9 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-tasks fa-10x mb-5"></i>
-                        <button class="btn btn-lg btn-block btn-primary mt-10">Kerjakan Tryout</button>
+                        <a href="<?= base_url('control_siswa/prep_soal') ?>">
+                            <button class="btn btn-lg btn-block btn-primary mt-10">Kerjakan Tryout</button>
+                        </a>
                     </div>
                 </div>
             </div>
