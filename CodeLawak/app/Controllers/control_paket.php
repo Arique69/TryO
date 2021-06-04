@@ -74,6 +74,9 @@ class control_paket extends BaseController
 
     public function update_paket($id)
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['paket'] = $this->paket->get_paket($id);
         echo view('template/header');
         echo view('update_paket', $data);

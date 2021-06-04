@@ -139,6 +139,9 @@ class control_siswa extends BaseController
 
     public function update_siswa($id)
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         // $data['guru'] = $this->guru->where(['id_guru', $id]);
         // dd($data);
         $data['siswa'] = $this->siswa->getSiswa($id);
@@ -238,6 +241,9 @@ class control_siswa extends BaseController
 
     public function menu_pass()
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         echo view('template/header');
         echo view('ganti_password');
     }

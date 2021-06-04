@@ -120,6 +120,9 @@ class control_soal extends BaseController
 
     public function update_soal($id)
     {
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
         $data['soal'] = $this->soal->get_soal($id);
         $data['paket'] = $this->paket->ambil_paket();
         $data['mapel'] = $this->mapel->ambil_mapel();
