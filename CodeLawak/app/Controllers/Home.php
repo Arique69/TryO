@@ -9,6 +9,7 @@ class Home extends BaseController
 		// return view('');
 		echo '';
 	}
+	//untuk menampilkan menu admin sehabis login
 	public function menuAdmin()
 	{
 		echo view('template/header');
@@ -21,6 +22,7 @@ class Home extends BaseController
 		}
 		echo view('menuadmin');
 	}
+	//untuk menampilkan menu guru sehabis login
 	public function menuGuru()
 	{
 		echo view('template/header');
@@ -33,6 +35,7 @@ class Home extends BaseController
 		}
 		echo view('menuguru');
 	}
+	//untuk menampilkan menu siswa sehabis login
 	public function menuSiswa()
 	{
 		echo view('template/header');

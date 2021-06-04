@@ -16,7 +16,7 @@ class control_mapel extends BaseController
     public function index()
     {
         $data['mata_pelajaran'] = $this->mata_pelajaran->ambil_mapel();
-        echo view('template/header');
+        echo view('template/header'); 
         echo view('output_mapel', $data);
     }
 

@@ -8,9 +8,6 @@ use App\Models\Siswa;
 
 class LoginController extends BaseController
 {
-    //tabel namanya guru
-
-
     //ini fungsi buat inisiasi object supaya tiap fungsi tidak usah menginisiasi object lagi
     public function __construct()
     {
@@ -108,8 +105,6 @@ class LoginController extends BaseController
             return redirect()->to(base_url('pages/login'));
         }
     }
-
-
     //untuk mengecek view header navbarnya
     public function header()
     {
