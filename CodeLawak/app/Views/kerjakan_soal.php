@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-body"><br><br>
                             <h4 class="card-title">Quiz 1 </h4> <br>
-                            <form id="form_quiz">
+                            <form id="form_quiz" action="scoring" method="POST">
                                 <?php $no = 1; ?>
                                 <?php foreach ($soal as $s) : ?>
                                     <div class="form-group">
@@ -43,12 +43,16 @@
                                                 <input type="radio" id="b" name="<?php echo $no; ?>" value="B">
                                                 <label for="b">B. <?php echo $s['opsi_b'] ?></label><br>
                                                 <input type="radio" id="c" name="<?php echo $no; ?>" value="C">
-                                                <label for="c">C. <?php echo $s['opsi_c'] ?></label>
+                                                <label for="c">C. <?php echo $s['opsi_c'] ?></label><br>
+                                                <input type="hidden" id="kunjaw" name="kunjaw<?php echo $no; ?>" value="<?php echo $s['kunci_jawaban'] ?>">
                                             </div>
                                     </div>
                                     <?php $no++; ?>
                                     <?php  ?>
                                 <?php endforeach; ?>
+                                <input type="hidden" name="id" value="<?php echo session()->get('id_siswa'); ?>">
+                                <input type="hidden" name="paket" value="<?php echo $s['nama_paket']; ?>">
+                                <input type="hidden" name="mapel" value="<?php echo $s['nama_mata_pelajaran']; ?>">
                                 <button class="btn btn-warning" type="submit">Selesai</button>
                             </form>
                         </div>

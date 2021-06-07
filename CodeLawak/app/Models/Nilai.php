@@ -7,7 +7,8 @@ use CodeIgniter\Model;
 class Nilai extends Model
 {
     protected $table = 'nilai';
-    public function ambil_guru()
+    protected $primaryKey = 'id_siswa';
+    public function ambil_nilai()
     {
         return $this->findAll();
     }
@@ -16,5 +17,11 @@ class Nilai extends Model
     {
         # code...
         return $this->db->table('nilai')->insert($data);
+    }
+
+    public function get_nilai($primaryKey)
+    {
+        # code...
+        return $this->find($primaryKey);
     }
 }

@@ -6,6 +6,8 @@ use App\Models\Mata_pelajaran;
 use App\Models\Paket;
 use App\Models\Siswa;
 use App\Models\Soal;
+use App\Models\Nilai;
+
 use Config\Services;
 
 class control_siswa extends BaseController
@@ -21,6 +23,7 @@ class control_siswa extends BaseController
         $this->soal = new Soal();
         $this->paket = new Paket();
         $this->mapel = new Mata_pelajaran();
+        $this->nilai = new Nilai();
     }
 
     public function index()
@@ -274,9 +277,43 @@ class control_siswa extends BaseController
         // ada kodingan buat ambil soal
         $p_mapel = $this->request->getPost('nama_mata_pelajaran');
         $p_paket = $this->request->getPost('nama_paket');
-        $data['soal'] = $this->soal->ambil_soal();
-        // dd($data['soal']);
+        $data['soal'] = $this->soal->acq_soal($p_mapel, $p_paket);
+        // dd($data);
         echo view('template/header');
         echo view('kerjakan_soal', $data);
+    }
+
+    public function scoring()
+    {
+        # code...
+        $benar = 0;
+        $salah = 0;
+        $totalsoal = 0;
+        $nilai = 0;
+        for ($i = 0; $i <= 1; $i++) {
+            # code...
+            $jawaban = $this->request->getPost($i);
+            $kunjaw = $this->request->getPost('kunjaw' . $i);
+            if ($jawaban == $kunjaw) {
+                $benar += 1;
+            } else {
+                $salah += 0;
+            }
+            $totalsoal++;
+        }
+        $nilai = ($benar / $totalsoal) * 100;
+        // dd($nilai);
+        date_default_timezone_set('Asia/Jakarta');
+        $tgl = date('l, d-M-Y H:i:s a');
+        $data = [
+            'id_siswa' => $this->request->getPost('id'),
+            'nilai' => $nilai,
+            'tanggal_pengerjaan' => $tgl,
+            'mata_pelajaran' => $this->request->getPost('mapel')
+        ];
+        $this->nilai->input_nilai($data);
+        $data['data'] = $data;
+        echo view('template/header');
+        echo view('rekap', $data);
     }
 }

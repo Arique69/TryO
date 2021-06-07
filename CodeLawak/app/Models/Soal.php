@@ -39,9 +39,6 @@ class Soal extends Model
     public function acq_soal($mapel, $paket)
     {
         # code...
-        return $this->db->table($this->table)->where([
-            'nama_mata_pelajaran' => $mapel,
-            'nama_paket' => $paket
-        ]);
+        return $this->db->table($this->table)->where('nama_mata_pelajaran', $mapel)->where('nama_paket', $paket)->get()->getResultArray();
     }
 }
