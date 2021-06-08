@@ -46,9 +46,12 @@
             </div>
             <div class="col-sm-4">
                 <div class="card">
+                
                     <div class="card-body text-center">
                         <i class="fas fa-star fa-10x mb-5"></i>
-                        <button class="btn btn-lg btn-block btn-primary mt-10">Lihat Nilai</button>
+                        <a href="<?php echo base_url('control_nilai/getNilai/' .session()->get('id_siswa')); ?>">
+                            <button class="btn btn-lg btn-block btn-primary mt-10">Lihat Nilai</button>
+                        </a>
                     </div>
                 </div>
             </div>

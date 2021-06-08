@@ -275,12 +275,22 @@ class control_siswa extends BaseController
             return redirect()->to(base_url('LoginController'));
         }
         // ada kodingan buat ambil soal
-        $p_mapel = $this->request->getPost('nama_mata_pelajaran');
-        $p_paket = $this->request->getPost('nama_paket');
-        $data['soal'] = $this->soal->acq_soal($p_mapel, $p_paket);
-        // dd($data);
-        echo view('template/header');
-        echo view('kerjakan_soal', $data);
+        $p_mapel = $this->request->getPost('id_mata_pelajaran');
+        $p_paket = $this->request->getPost('id_paket');
+        $count = $this->soal->acq_soal_count($p_mapel, $p_paket);
+        if ($count>=5){
+            $data = [
+                'soal' => $this->soal->acq_soal($p_mapel, $p_paket),
+                'count' => $count
+            ];
+            // dd($data);
+            echo view('template/header');
+            echo view('kerjakan_soal', $data);
+        }else{
+            session()->setFlashdata('pesan', 'Paket soal sedang dalam pengerjaan silakan pilih yang lain ! ');
+            return redirect()->to(base_url('control_siswa/prep_soal'));
+        }
+       
     }
 
     public function scoring()
@@ -290,29 +300,34 @@ class control_siswa extends BaseController
         $salah = 0;
         $totalsoal = 0;
         $nilai = 0;
-        for ($i = 0; $i <= 1; $i++) {
+        for ($i = 1; $i <= $this->request->getPost('count'); $i++) {
             # code...
             $jawaban = $this->request->getPost($i);
             $kunjaw = $this->request->getPost('kunjaw' . $i);
             if ($jawaban == $kunjaw) {
                 $benar += 1;
             } else {
-                $salah += 0;
+                $salah += 1;
             }
             $totalsoal++;
         }
         $nilai = ($benar / $totalsoal) * 100;
-        // dd($nilai);
         date_default_timezone_set('Asia/Jakarta');
-        $tgl = date('l, d-M-Y H:i:s a');
+        $tgl = date('d-m-Y H:i:s');
         $data = [
             'id_siswa' => $this->request->getPost('id'),
             'nilai' => $nilai,
             'tanggal_pengerjaan' => $tgl,
-            'mata_pelajaran' => $this->request->getPost('mapel')
+            'mata_pelajaran' => $this->request->getPost('mapel'),
+            'paket' => $this->request->getPost('paket'),
         ];
         $this->nilai->input_nilai($data);
-        $data['data'] = $data;
+        $data=[
+            'data' => $data,
+            'benar' => $benar,
+            'totalsoal' => $totalsoal,
+            'salah' => $salah,
+        ];
         echo view('template/header');
         echo view('rekap', $data);
     }

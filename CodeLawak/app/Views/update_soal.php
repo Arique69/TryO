@@ -30,21 +30,21 @@
                             <!-- supaya input page hanya bisa di page ini saja -->
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <label for="nama_mata_pelajaran">Mata Pelajaran : </label>
-                                <select name="nama_mata_pelajaran" id="nama_mata_pelajaran" class="form-control">
+                                <label for="id_mata_pelajaran">Mata Pelajaran : </label>
+                                <select name="id_mata_pelajaran" id="id_mata_pelajaran" class="form-control">
                                     <?php
                                     foreach ($mapel as $m) :  ?>
-                                       <option value="<?= $m['nama_mata_pelajaran']; ?>"  <?php if($soal['nama_mata_pelajaran']==$m['nama_mata_pelajaran']) echo 'selected="selected"';?>><?= $m['nama_mata_pelajaran']; ?></option>
+                                       <option value="<?= $m['id_mata_pelajaran']; ?>"  <?php if($soal['id_mata_pelajaran']==$m['id_mata_pelajaran']) echo 'selected="selected"';?>><?= $m['nama_mata_pelajaran']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="nama_paket">Paket : </label>
-                                <select name="nama_paket" id="nama_paket" class="form-control">
+                                <label for="id_paket">Paket : </label>
+                                <select name="id_paket" id="id_paket" class="form-control">
                                     <?php
                                     foreach ($paket as $p) :  ?>
-                                       <option value="<?= $p['nama_paket']; ?>"  <?php if($soal['nama_paket']==$p['nama_paket']) echo 'selected="selected"';?>><?= $p['nama_paket']; ?></option>
+                                       <option value="<?= $p['id_paket']; ?>"  <?php if($soal['id_paket']==$p['id_paket']) echo 'selected="selected"';?>><?= $p['nama_paket']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

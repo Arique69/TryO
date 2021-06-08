@@ -15,6 +15,14 @@ class Soal extends Model
         return $this->findAll();
     }
 
+    public function ambil_soal_join(){
+        return $this->db->table($this->table)
+            ->select('*')
+            ->join('mata_pelajaran', 'soal.id_mata_pelajaran = mata_pelajaran.id_mata_pelajaran')
+            ->join('paket', 'soal.id_paket = paket.id_paket')
+            ->get()->getResultArray();
+    }
+
     public function input_soal($data)
     {
         # code...
@@ -39,6 +47,26 @@ class Soal extends Model
     public function acq_soal($mapel, $paket)
     {
         # code...
-        return $this->db->table($this->table)->where('nama_mata_pelajaran', $mapel)->where('nama_paket', $paket)->get()->getResultArray();
+        // return $this->db->table($this->table)->where('id_mata_pelajaran', $mapel)->where('id_paket', $paket)->get()->getResultArray();
+        return $this->db->table($this->table)
+            ->select('*')
+            ->join('mata_pelajaran', 'soal.id_mata_pelajaran = mata_pelajaran.id_mata_pelajaran')
+            ->join('paket', 'soal.id_paket = paket.id_paket')
+            ->where('soal.id_paket', $paket)
+            ->where('soal.id_mata_pelajaran', $mapel)
+            ->get()->getResultArray();
+    }
+
+    public function acq_soal_count($mapel, $paket)
+    {
+        # code...
+        // return $this->db->table($this->table)->where('id_mata_pelajaran', $mapel)->where('id_paket', $paket)->get()->getResultArray();
+        return $this->db->table($this->table)
+            ->select('*')
+            ->join('mata_pelajaran', 'soal.id_mata_pelajaran = mata_pelajaran.id_mata_pelajaran')
+            ->join('paket', 'soal.id_paket = paket.id_paket')
+            ->where('soal.id_paket', $paket)
+            ->where('soal.id_mata_pelajaran', $mapel)
+            ->countAllResults();
     }
 }

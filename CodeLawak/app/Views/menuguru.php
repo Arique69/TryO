@@ -63,6 +63,14 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-graduation-cap fa-10x mb-5"></i>
+                        <a class="btn btn-lg btn-block btn-primary mt-10" href="<?= base_url('control_nilai/getAll') ?>">Lihat nilai siswa</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

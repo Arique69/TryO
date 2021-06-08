@@ -60,8 +60,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="email">Tanggal lahir</label>
-                                <input type="text" class="form-control <?= ($validation->hasError('TTL')) ? 'is-invalid' : '' ?>" placeholder="Tanggal Lahir" id="TTL" name="TTL">
+                                <label for="TTL" class="col-2 col-form-label">Tanggal Lahir</label>
+                                <input class="form-control <?= ($validation->hasError('TTL')) ? 'is-invalid' : '' ?>" type="date"  id="TTL" name="TTL">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('TTL') ?>
                                 </div>

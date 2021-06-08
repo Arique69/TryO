@@ -7,10 +7,14 @@ use CodeIgniter\Model;
 class Nilai extends Model
 {
     protected $table = 'nilai';
-    protected $primaryKey = 'id_siswa';
+    protected $primaryKey = 'id_nilai';
+
     public function ambil_nilai()
     {
-        return $this->findAll();
+        return $this->db->table($this->table)
+            ->select('*')
+            ->join('siswa', 'nilai.id_siswa = siswa.id_siswa')
+            ->get()->getResultArray();
     }
 
     public function input_nilai($data)
@@ -19,9 +23,9 @@ class Nilai extends Model
         return $this->db->table('nilai')->insert($data);
     }
 
-    public function get_nilai($primaryKey)
+    public function get_nilai($id)
     {
         # code...
-        return $this->find($primaryKey);
+        return $this->db->table($this->table)->select('*')->where('id_siswa',$id)->get()->getResultArray();
     }
 }

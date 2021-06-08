@@ -25,7 +25,7 @@ class control_soal extends BaseController
         if (!session()->get('isLogin')){
             return redirect()->to(base_url('LoginController'));
         }
-        $data['soal'] = $this->soal->ambil_soal();
+        $data['soal'] = $this->soal->ambil_soal_join();
         echo view('template/header');
         echo view('output_soal', $data);
     }
@@ -86,8 +86,8 @@ class control_soal extends BaseController
         }
 
 
-        $nama_mata_pelajaran = $this->request->getPost('nama_mata_pelajaran');
-        $nama_paket = $this->request->getPost('nama_paket');
+        $nama_mata_pelajaran = $this->request->getPost('id_mata_pelajaran');
+        $nama_paket = $this->request->getPost('id_paket');
         $gambar = $this->request->getPost('gambar');
         $isi_soal = $this->request->getPost('isi_soal');
         $opsi_a = $this->request->getPost('opsi_a');
@@ -96,8 +96,8 @@ class control_soal extends BaseController
         $kunjaw = $this->request->getPost('kunjaw');
 
         $data = [
-            'nama_mata_pelajaran' => $nama_mata_pelajaran,
-            'nama_paket' => $nama_paket,
+            'id_mata_pelajaran' => $nama_mata_pelajaran,
+            'id_paket' => $nama_paket,
             'gambar' => $gambar,
             'isi_soal' => $isi_soal,
             'opsi_a' => $opsi_a,
@@ -133,8 +133,8 @@ class control_soal extends BaseController
     public function updatesoal()
     {
         $id =  $this->request->getPost('id_soal');
-        $nama_mata_pelajaran = $this->request->getPost('nama_mata_pelajaran');
-        $nama_paket = $this->request->getPost('nama_paket');
+        $id_mata_pelajaran = $this->request->getPost('id_mata_pelajaran');
+        $id_paket = $this->request->getPost('id_paket');
         $gambar = $this->request->getPost('gambar');
         $isi_soal = $this->request->getPost('isi_soal');
         $opsi_a = $this->request->getPost('opsi_a');
@@ -143,8 +143,8 @@ class control_soal extends BaseController
         $kunjaw = $this->request->getPost('kunjaw');
 
         $data = [
-            'nama_mata_pelajaran' => $nama_mata_pelajaran,
-            'nama_paket' => $nama_paket,
+            'id_mata_pelajaran' => $id_mata_pelajaran,
+            'id_paket' => $id_paket,
             'gambar' => $gambar,
             'isi_soal' => $isi_soal,
             'opsi_a' => $opsi_a,

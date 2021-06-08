@@ -53,6 +53,7 @@
                                 <input type="hidden" name="id" value="<?php echo session()->get('id_siswa'); ?>">
                                 <input type="hidden" name="paket" value="<?php echo $s['nama_paket']; ?>">
                                 <input type="hidden" name="mapel" value="<?php echo $s['nama_mata_pelajaran']; ?>">
+                                <input type="hidden" name="count" value=<?php echo $count; ?>>
                                 <button class="btn btn-warning" type="submit">Selesai</button>
                             </form>
                         </div>

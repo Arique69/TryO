@@ -55,9 +55,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="email">Tanggal lahir</label>
-                                <input type="text" class="form-control" placeholder="Tanggal Lahir" id="TTL" name="TTL" value="<?php echo $siswa['TTL'] ?>">
+                                <label for="TTL" class="col-2 col-form-label">Tanggal Lahir</label> 
+                                <input class="form-control" type="date"  id="TTL" name="TTL" value="<?php echo $siswa['TTL'] ?>">
+        
                             </div>
+            
                             <div class="form-group">
                                 <label for="email">Masukan Email</label>
                                 <input type="email" class="form-control" placeholder="email" id="email" name="email" value="<?php echo $siswa['email'] ?>">

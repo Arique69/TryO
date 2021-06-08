@@ -13,7 +13,7 @@
     <link rel="styleshet" href="gaya.css">
 
     <!-- judul -->
-    <title>Input Data Soal</title>
+    <title>Daftar Mata Pelajaran</title>
     <style>
         body {
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
@@ -36,34 +36,46 @@
     <!-- page bawahnya -->
     <div class="container" style="margin-top: 100px;">
         <div class="row">
-            <br>
+            <h1> Daftar Nilai</h1>
         </div>
         <div class="container">
-            <!-- ini nambah tombol kelola guru -->
-            <!-- searching bar -->
-            <!-- <input type="text" id="searchbar" onkeyup="filtertable()" placeholder="Search for names.." class=""> -->
-            <!-- buat nambah flash data -->
-            <?php if (session()->getFlashdata('pesan')) : ?>
-                <div class="alert alert-success mt-2" role="alert">
-                    <?= session()->getFlashdata('pesan'); ?>
-                </div>
-            <?php endif; ?>
-            <h1>Rekap Nilai Anda</h1>
-            <div class="card">
-                <div class="ml-3 mr-3">
-                    <br><br>
-                    <h4>Mata Pelajaran : <?php echo $data['mata_pelajaran']; ?></h4>
-                    <h4>Tanggal Pengerjaan : <?php echo $data['tanggal_pengerjaan']; ?></h4>
-                    <h4>Benar : <?php echo $benar; ?></h4>
-                    <h4>Salah : <?php echo $salah; ?></h4>
-                    <h4>Total Soal : <?php echo $totalsoal; ?></h4>
-                    <h4>Nilai : <?php echo $data['nilai']; ?></h4>
-                    <br><br>
-                </div>
+            <div>
+                <table id="table_id" class="display table table-striped table-bordered table-sm mt-3">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Siswa</th>
+                            <th>NISN</th>
+                            <th>Kelas</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Paket</th>
+                            <th>nilai</th>
+                            <th>tgl pengerjaan</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($nilai as $n) :  ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $n['nama_siswa']; ?></td>
+                                <td><?= $n['NISN']; ?></td>
+                                <td><?= $n['kelas']; ?></td>
+                                <td><?= $n['mata_pelajaran']; ?></td>
+                                <td><?= $n['paket']; ?></td>
+                                <td><?= $n['nilai']; ?></td>
+                                <td><?= $n['tanggal_pengerjaan']; ?></td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
             <div class="row">
                 <div class="col md-6">
-                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menusiswa') ?>">Kembali</a>
+                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menuGuru') ?>">Kembali</a>
                 </div>
             </div>
         </div>

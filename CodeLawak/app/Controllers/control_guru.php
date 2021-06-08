@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Guru;
+use App\Models\Nilai;
 use Config\Services;
 
 class control_guru extends BaseController
@@ -122,7 +123,6 @@ class control_guru extends BaseController
         if (!session()->get('isLogin')){
             return redirect()->to(base_url('LoginController'));
         }
-        data['guru'] = $this->guru->where(['id_guru', $id]);
         // dd($data);
         $data['guru'] = $this->guru->getGuru($id);
         // $data['guru'] = $this->guru->getGuru($id);
@@ -152,5 +152,15 @@ class control_guru extends BaseController
         $this->guru->updateguruyaha($data, $id);
         session()->setFlashdata('pesan', 'data berhasil diubah');
         return redirect()->to(base_url('control_guru'));
+    }
+
+    public function lihat_nilai_siswa(){
+        if (!session()->get('isLogin')){
+            return redirect()->to(base_url('LoginController'));
+        }
+        $data['nilai'] = $this->guru->ambil_nilai();
+        //$data = $guru->ambil_guru();
+        echo view('template/header');
+        echo view('output_nilai', $data);
     }
 }

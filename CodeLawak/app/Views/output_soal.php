@@ -56,7 +56,6 @@
                             <th>no</th>
                             <th>Nama Mata Pelajaran</th>
                             <th>Nama Paket</th>
-                            <th>link gambar</th>
                             <th>Isi Soal</th>
                             <th>Opsi A</th>
                             <th>Opsi B</th>
@@ -75,7 +74,6 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $s['nama_mata_pelajaran']; ?></td>
                                 <td><?= $s['nama_paket']; ?></td>
-                                <td><?= $s['gambar']; ?></td>
                                 <td><?= $s['isi_soal']; ?></td>
                                 <td><?= $s['opsi_a']; ?></td>
                                 <td><?= $s['opsi_b']; ?></td>
