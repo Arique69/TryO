@@ -13,7 +13,11 @@
 
 <body>
     <div class="container" style="margin-top:200px" id="form">
-        <?php if (!empty(session()->getFlashdata('success'))) { ?>
+        <?php
+
+        use CodeIgniter\Database\BaseUtils;
+
+        if (!empty(session()->getFlashdata('success'))) { ?>
             <?php echo session()->getFlashdata('success'); ?>
         <?php } ?>
         <h3 class="mb-3"><b>Menu Siswa</b></h3>
@@ -48,7 +52,9 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <i class="fas fa-star fa-10x mb-5"></i>
-                        <button class="btn btn-lg btn-block btn-primary mt-10">Lihat Nilai</button>
+                        <a href=" <?= base_url('control_siswa/lihat_nilai') ?> ">
+                            <button class="btn btn-lg btn-block btn-primary mt-10">Lihat Nilai</button>
+                        </a>
                     </div>
                 </div>
             </div>
