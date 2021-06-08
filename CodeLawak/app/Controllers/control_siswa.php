@@ -16,6 +16,7 @@ class control_siswa extends BaseController
     protected $mapel;
     protected $paket;
     protected $siswa;
+    protected $nilai;
 
     public function __construct()
     {
@@ -330,5 +331,14 @@ class control_siswa extends BaseController
         ];
         echo view('template/header');
         echo view('rekap', $data);
+    }
+
+    public function lihat_nilai()
+    {
+        # code...
+        $data['nilai'] = $this->nilai->ambil_nilai();
+        // dd($data);
+        echo view('template/header');
+        echo view('lihatnilai', $data);
     }
 }

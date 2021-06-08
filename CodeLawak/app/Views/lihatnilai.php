@@ -52,26 +52,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>19/03/2021</td>
-            <td>Matematika</td>
-            <td>70</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>19/03/2021</td>
-            <td>Bahasa Indonesia</td>
-            <td>85</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>19/03/2021</td>
-            <td>IPA</td>
-            <td>90</td>
-          </tr>
+          <?php $no = 1; ?>
+          <?php foreach ($nilai as $n) : ?>
+            <tr>
+              <th scope="row"> <?php echo $no; ?> </th>
+
+            </tr>
+            <?php $no++; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
+      <a href="<?php base_url('Home/menusiswa'); ?>"></a>
       <button type="button" class="btn btn-secondary">Kembali</button>
     </div>
   </div>
