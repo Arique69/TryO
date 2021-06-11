@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container" style="margin-top:200px" id="form">
+    <div class="container" style="margin-top:100px" id="form">
         <div class="row">
             <div class="col-sm-8">
                 <div class="card">
@@ -29,15 +29,15 @@
                             <input type="hidden" value="<?php echo session()->get('username'); ?>" name="uname" id='uname'>
                             <input type="hidden" value="<?php echo session()->get('id_siswa'); ?>" name="id" id='id'>
                             <input type="hidden" value="<?php echo session()->get('password'); ?>" name="user_p" id='user_p'>
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="pwd">Masukan Password lama:</label>
                                 <input type="password" class="form-control" placeholder="password lama" id="oldp" name="oldp">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="pwd">Masukan Password Baru:</label>
                                 <input type="password" class="form-control" placeholder="password baru" id="newp" name="newp">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <label for="pwd">Masukan kembali Password Baru:</label>
                                 <input type="password" class="form-control" placeholder="Re-Enter password" id="rep" name="rep">
                             </div>
@@ -48,7 +48,6 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <img src="<?= base_url('img/gantipassword.png') ?>" style="width: 150%;">
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@
 
 <body>
     <!-- container untuk body -->
-    <div class="container" style="margin-top:200px" id="form">
+    <div class="container" style="margin-top:100px" id="form">
         <?php if (!empty(session()->getFlashdata('success'))) { ?>
             <?php echo session()->getFlashdata('success'); ?>
         <?php } ?>
@@ -33,9 +33,9 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-chalkboard-teacher fa-10x "></i>
+                        <i class="fas fa-chalkboard-teacher fa-10x "></i><br>
                         <a href="<?= base_url('control_guru') ?>">
-                            <button class="btn btn-lg btn-block btn-primary mt-10">Manage Guru</button>
+                            <button class="btn btn-lg btn-block btn-primary mt-10" style="margin-top: 1cm;">Manage Guru</button>
                         </a>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-graduation-cap fa-10x"></i>
+                        <i class="fas fa-graduation-cap fa-10x"></i><br>
                         <a href="<?= base_url('control_siswa') ?>">
-                            <button class=" btn btn-lg btn-block btn-primary mt-10">Manage Siswa</button>
+                            <button class=" btn btn-lg btn-block btn-primary mt-10" style="margin-top: 1cm;">Manage Siswa</button>
                         </a>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container" style="margin-top:200px" id="form">
+    <div class="container" style="margin-top:100px" id="form">
         <?php
 
         use CodeIgniter\Database\BaseUtils;
@@ -31,9 +31,9 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-key fa-10x mb-5"></i>
+                        <i class="fas fa-key fa-10x mb-5"></i><br>
                         <a href="<?= base_url('control_siswa/menu_pass') ?>">
-                            <button class="btn btn-lg btn-block btn-primary mt-10">Ganti Password</button>
+                            <button class="btn btn-lg btn-block btn-primary mt-10" style="margin-top: 3px;">Ganti Password</button>
                         </a>
                     </div>
                 </div>
@@ -41,9 +41,9 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-tasks fa-10x mb-5"></i>
+                        <i class="fas fa-tasks fa-10x mb-5"></i><br>
                         <a href="<?= base_url('control_siswa/prep_soal') ?>">
-                            <button class="btn btn-lg btn-block btn-primary mt-10">Kerjakan Tryout</button>
+                            <button class="btn btn-lg btn-block btn-primary mt-10" style="margin-top: 3px;">Kerjakan Tryout</button>
                         </a>
                     </div>
                 </div>
@@ -52,18 +52,10 @@
                 <div class="card">
                 
                     <div class="card-body text-center">
-                        <i class="fas fa-star fa-10x mb-5"></i>
+                        <i class="fas fa-star fa-10x mb-5"></i><br>
                         <a href="<?php echo base_url('control_nilai/getNilai/' .session()->get('id_siswa')); ?>">
-                            <button class="btn btn-lg btn-block btn-primary mt-10">Lihat Nilai</button>
+                            <button class="btn btn-lg btn-block btn-primary mt-10" style="margin-top: 3px;">Lihat Nilai</button>
                         </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-graduation-cap fa-10x mb-5"></i>
-                        <a class="btn btn-lg btn-block btn-primary mt-10" href="<?= base_url('LoginController/logout') ?>">Log Out</a>
                     </div>
                 </div>
             </div>

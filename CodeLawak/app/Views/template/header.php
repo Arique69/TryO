@@ -11,7 +11,9 @@
     />" -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <title>TryO - Tryout berbasis online</title>
   <style>
@@ -63,8 +65,8 @@
         ><img src="<?= base_url('img/tryoA.png') ?>" alt="" style="width: 9%"
       /></a>
       
-      <button class="btn btn-sm btn-outline-light mr-3" style="margin-right: 20px;"><i class="fa fa-user"></i><?php echo session()->get('username'); ?></button>
-      <a href="<?= base_url('LoginController/logout') ?>"><button class="btn btn-sm btn-outline-light mr-3" style="margin-right: 20px;"><i class="fas fa-sign-out-alt"></i>Logout</button></a>
+      <button class="btn btn-sm btn-outline-light mr-3" style="margin-left: 10px; "><i class="fa fa-user mr-3"></i><?php echo session()->get('username'); ?></button>
+      <a href="<?= base_url('LoginController/logout') ?>"><button class="btn btn-sm btn-outline-light mr-3" style="margin-left: 10px;"><i class="fas fa-sign-out-alt mr-3"></i>Logout</button></a>
     </div>
 
   <!--Navbar Middle-->
