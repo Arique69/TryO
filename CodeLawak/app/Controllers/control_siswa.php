@@ -166,7 +166,8 @@ class control_siswa extends BaseController
 
     public function updatesiswa()
     {
-        $id =  $this->request->getPost('id_siswa');
+        // $id =  $this->request->getPost('id_siswa');
+        $id = session()->get('id_siswa');
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
         $nisn = $this->request->getPost('nisn');
@@ -195,14 +196,16 @@ class control_siswa extends BaseController
 
     public function ubahPass()
     {
-        $id = $this->request->getPost('id');
-        $username = $this->request->getPost('uname');
+        // $id = $this->request->getPost('id');
+        $id = session()->get('id_siswa');
+        // $username = $this->request->getPost('uname');
+        $username = session()->get('username');
         $oldpass = $this->request->getPost('oldp');
         $newpass = $this->request->getPost('newp');
         $user_p = $this->request->getPost('user_p');
         $confirm = $this->request->getPost('rep');
         if ($user_p == $oldpass) {
-            if($confirm == $newpass){
+            if ($confirm == $newpass) {
                 $data = [
                     'password' => $newpass
                 ];
@@ -216,11 +219,10 @@ class control_siswa extends BaseController
                 ];
                 $session->set($session_data);
                 return redirect()->to(base_url('pages/menu_siswa'));
-            }else{
+            } else {
                 session()->setFlashdata('pesan', 'konfirmasi password tidak sama');
                 return redirect()->to(base_url('control_siswa/menu_pass'));
             }
-            
         } else {
             session()->setFlashdata('pesan', 'Password lama tidak sama');
             return redirect()->to(base_url('control_siswa/menu_pass'));
@@ -258,7 +260,7 @@ class control_siswa extends BaseController
         $p_mapel = $this->request->getPost('id_mata_pelajaran');
         $p_paket = $this->request->getPost('id_paket');
         $count = $this->soal->acq_soal_count($p_mapel, $p_paket);
-        if ($count>=5){
+        if ($count >= 5) {
             $data = [
                 'soal' => $this->soal->acq_soal($p_mapel, $p_paket),
                 'count' => $count
@@ -266,11 +268,10 @@ class control_siswa extends BaseController
             // dd($data);
             echo view('template/header');
             echo view('kerjakan_soal', $data);
-        }else{
+        } else {
             session()->setFlashdata('pesan', 'Paket soal sedang dalam pengerjaan silakan pilih yang lain ! ');
             return redirect()->to(base_url('control_siswa/prep_soal'));
         }
-       
     }
 
     public function scoring()
@@ -295,14 +296,15 @@ class control_siswa extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $tgl = date('d-m-Y H:i:s');
         $data = [
-            'id_siswa' => $this->request->getPost('id'),
+            // 'id_siswa' => $this->request->getPost('id'),
+            'id_siswa' => session()->get('id_siswa'),
             'nilai' => $nilai,
             'tanggal_pengerjaan' => $tgl,
             'mata_pelajaran' => $this->request->getPost('mapel'),
             'paket' => $this->request->getPost('paket'),
         ];
         $this->nilai->input_nilai($data);
-        $data=[
+        $data = [
             'data' => $data,
             'benar' => $benar,
             'totalsoal' => $totalsoal,
