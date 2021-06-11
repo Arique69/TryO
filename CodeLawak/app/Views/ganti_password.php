@@ -20,6 +20,11 @@
                         <div class="alert alert-info">
                             <b>Masukan Password baru</b> - pastikan anda mengingat password yang anda masukan
                         </div>
+                        <?php if (session()->getFlashdata('pesan')) : ?>
+                            <div class="alert alert-danger mt-2" role="alert">
+                                <?= session()->getFlashdata('pesan'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form action="ubahPass" method="POST">
                             <input type="hidden" value="<?php echo session()->get('username'); ?>" name="uname" id='uname'>
                             <input type="hidden" value="<?php echo session()->get('id_siswa'); ?>" name="id" id='id'>
@@ -37,7 +42,7 @@
                                 <input type="password" class="form-control" placeholder="Re-Enter password" id="rep" name="rep">
                             </div>
                             <button type="submit" class="btn btn-xl btn-secondary mt-3">Simpan dan lanjutkan</button>
-                            <button type="submit" class="btn btn-xl btn-warning mt-3">Kembali ke menu</button>
+                            <a type="button" class="btn btn-xl btn-warning mt-3" href="<?php echo base_url('Home/menuSiswa'); ?>">Kembali ke menu</a>
                         </form>
                     </div>
                 </div>

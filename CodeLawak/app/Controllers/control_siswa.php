@@ -16,7 +16,6 @@ class control_siswa extends BaseController
     protected $mapel;
     protected $paket;
     protected $siswa;
-    protected $nilai;
 
     public function __construct()
     {
@@ -196,55 +195,35 @@ class control_siswa extends BaseController
 
     public function ubahPass()
     {
-        # code...
-        if (!$this->validate([
-            'oldp' => [
-                'rules' => 'required|min_length[5]',
-                'errors' => [
-                    'required' => 'Password harus diisi.',
-                    'min_length' => 'masukan minimal 5 karakter Password'
-                ]
-            ],
-
-            'newp' => [
-                'rules' => 'required|min_length[5]',
-                'errors' => [
-                    'required' => 'Password harus diisi.',
-                    'min_length' => 'masukan minimal 5 karakter Password'
-                ]
-            ],
-
-            'rep' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Konfirmasi password harus diisi.'
-                ]
-            ]
-        ])) {
-            $validation = \Config\Services::validation();
-        }
         $id = $this->request->getPost('id');
         $username = $this->request->getPost('uname');
         $oldpass = $this->request->getPost('oldp');
         $newpass = $this->request->getPost('newp');
         $user_p = $this->request->getPost('user_p');
+        $confirm = $this->request->getPost('rep');
         if ($user_p == $oldpass) {
-            $data = [
-                'password' => $newpass
-            ];
-            $this->siswa->updatesiswayaha($data, $id);
-            $session = session(); // load library session
-            $session_data = [
-                'id_siswa' => $id,
-                'username' => $username,
-                'password' => $newpass,
-                'role' => 2
-            ];
-            $session->set($session_data);
-            return redirect()->to(base_url('pages/menu_siswa'));
+            if($confirm == $newpass){
+                $data = [
+                    'password' => $newpass
+                ];
+                $this->siswa->updatesiswayaha($data, $id);
+                $session = session(); // load library session
+                $session_data = [
+                    'id_siswa' => $id,
+                    'username' => $username,
+                    'password' => $newpass,
+                    'role' => 2
+                ];
+                $session->set($session_data);
+                return redirect()->to(base_url('pages/menu_siswa'));
+            }else{
+                session()->setFlashdata('pesan', 'konfirmasi password tidak sama');
+                return redirect()->to(base_url('control_siswa/menu_pass'));
+            }
+            
         } else {
-            session()->setFlashdata('pesan', 'konfirmasi password tidak sama');
-            return redirect()->to(base_url('pages/menu_siswa'));
+            session()->setFlashdata('pesan', 'Password lama tidak sama');
+            return redirect()->to(base_url('control_siswa/menu_pass'));
         }
     }
 
@@ -331,14 +310,5 @@ class control_siswa extends BaseController
         ];
         echo view('template/header');
         echo view('rekap', $data);
-    }
-
-    public function lihat_nilai()
-    {
-        # code...
-        $data['nilai'] = $this->nilai->ambil_nilai();
-        // dd($data);
-        echo view('template/header');
-        echo view('lihatnilai', $data);
     }
 }

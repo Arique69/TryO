@@ -10,11 +10,6 @@ class Soal extends Model
     protected $table = 'soal';
     protected $primaryKey = 'id_soal';
 
-    public function ambil_soal()
-    {
-        return $this->findAll();
-    }
-
     public function ambil_soal_join(){
         return $this->db->table($this->table)
             ->select('*')

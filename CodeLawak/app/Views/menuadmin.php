@@ -33,7 +33,7 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-chalkboard-teacher fa-10x mb-5"></i>
+                        <i class="fas fa-chalkboard-teacher fa-10x "></i>
                         <a href="<?= base_url('control_guru') ?>">
                             <button class="btn btn-lg btn-block btn-primary mt-10">Manage Guru</button>
                         </a>
@@ -44,18 +44,10 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body text-center">
-                        <i class="fas fa-graduation-cap fa-10x mb-5"></i>
+                        <i class="fas fa-graduation-cap fa-10x"></i>
                         <a href="<?= base_url('control_siswa') ?>">
                             <button class=" btn btn-lg btn-block btn-primary mt-10">Manage Siswa</button>
                         </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <i class="fas fa-graduation-cap fa-10x mb-5"></i>
-                        <a class="btn btn-lg btn-block btn-primary mt-10" href="<?= base_url('LoginController/logout') ?>">Log Out</a>
                     </div>
                 </div>
             </div>

@@ -10,9 +10,8 @@
       crossorigin="anonymous"
     />" -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
-
-  <!-- <link rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"> -->
 
   <title>TryO - Tryout berbasis online</title>
   <style>
@@ -55,8 +54,21 @@
     </ul>
   </div>
 
+   <!--Navbar Middle-->
+   <div
+      class="navbar navbar-expand-sm navbar-light justify-content-between"
+      id="gradient"
+    >
+      <a class="navbar-brand" href="#"
+        ><img src="<?= base_url('img/tryoA.png') ?>" alt="" style="width: 9%"
+      /></a>
+      
+      <button class="btn btn-sm btn-outline-light mr-3" style="margin-right: 20px;"><i class="fa fa-user"></i><?php echo session()->get('username'); ?></button>
+      <a href="<?= base_url('LoginController/logout') ?>"><button class="btn btn-sm btn-outline-light mr-3" style="margin-right: 20px;"><i class="fas fa-sign-out-alt"></i>Logout</button></a>
+    </div>
+
   <!--Navbar Middle-->
-  <div class="navbar navbar-expand-sm navbar-light justify-content-between" style="background-color: #98bbd3" id="gradient">
-    <a class="navbar-brand" href="#"><img src=<?= base_url('img/tryoA.png') ?> alt="" style="width: 150px; margin-left:50px" /></a>
-    <h5 style="color: white; margin-right:50px"><?php echo session()->get('username'); ?></h5>
+  <!-- <div class="navbar navbar-expand-sm navbar-light justify-content-between" style="background-color: #98bbd3" id="gradient">
+    <a class="navbar-brand" href="#"><img src= alt="" style="width: 150px; margin-left:50px" /></a> -->
+   
   </div>
