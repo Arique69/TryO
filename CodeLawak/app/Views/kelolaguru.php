@@ -31,7 +31,7 @@
                             <?= csrf_field(); ?>
                             <div class="form-group">
                                 <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
-                                <label for="nama">Masukan nama siswa</label>
+                                <label for="nama">Masukan nama Guru</label>
                                 <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" placeholder="Nama guru" id="nama" name="nama">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('nama') ?>

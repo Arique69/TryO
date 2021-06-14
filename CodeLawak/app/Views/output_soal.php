@@ -63,7 +63,6 @@
                             <th>Kunci jawaban</th>
                             <th>Hapus</th>
                             <th>Update</th>
-                            <th>show</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +80,6 @@
                                 <td><?= $s['kunci_jawaban']; ?></td>
                                 <td><a href="<?php echo base_url('control_soal/delete_soal/' . $s['id_soal']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
                                 <td><a href="<?php echo base_url('control_soal/update_soal/' . $s['id_soal']); ?>" class="btn btn-warning btn-block">edit</a></td>
-                                <td><a href="<?php echo base_url('control_soal/show_soal/' . $s['id_soal']); ?>" class="btn btn-primary btn-block">Show</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
