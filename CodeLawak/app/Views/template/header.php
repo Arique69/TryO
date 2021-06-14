@@ -47,12 +47,6 @@
   <!--Navbar top-->
   <div class="d-flex justify-content-end bg-dark">
     <ul class="nav nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Help</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: white">Contact Admin</a>
-      </li>
     </ul>
   </div>
 
@@ -68,9 +62,5 @@
       <button class="btn btn-sm btn-outline-light mr-3" style="margin-left: 10px; "><i class="fa fa-user mr-3"></i><?php echo session()->get('username'); ?></button>
       <a href="<?= base_url('LoginController/logout') ?>"><button class="btn btn-sm btn-outline-light mr-3" style="margin-left: 10px;"><i class="fas fa-sign-out-alt mr-3"></i>Logout</button></a>
     </div>
-
-  <!--Navbar Middle-->
-  <!-- <div class="navbar navbar-expand-sm navbar-light justify-content-between" style="background-color: #98bbd3" id="gradient">
-    <a class="navbar-brand" href="#"><img src= alt="" style="width: 150px; margin-left:50px" /></a> -->
    
   </div>

@@ -17,7 +17,6 @@ class Paket extends Model
 
     public function input_paket($data)
     {
-        # code...
         return $this->db->table('paket')->insert($data);
     }
 

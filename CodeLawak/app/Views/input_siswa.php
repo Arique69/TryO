@@ -51,7 +51,6 @@
                     <div class="form-group">
                         <label for="usernameInput">Email</label>
                         <input type="username" class="form-control" id="usernameInput" placeholder="Tulis email anda" required>
-                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                     </div>
                     <label for="validationCustomUsername">Username</label>
                     <div class="input-group mb-3">

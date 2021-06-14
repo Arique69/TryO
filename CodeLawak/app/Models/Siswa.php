@@ -25,13 +25,11 @@ class Siswa extends Model
         return $this->db->table($this->table)->delete(['id_siswa' => $primaryKey]);
     }
 
-    public function updatesiswayaha($data, $primaryKey){
+    public function updateSiswa($data, $primaryKey){
         return $this->db->table($this->table)->update($data, ['id_siswa' => $primaryKey]);
     }
 
     public function getSiswa($primaryKey){
-        // return $this->db->table($this->table)->getWhere(['id_guru' => $primarykey], 1, 1);
-        // return $this->find($primarykey);
         return $this->find($primaryKey);
     }
 

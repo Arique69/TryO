@@ -32,8 +32,6 @@ class control_siswa extends BaseController
             return redirect()->to(base_url('LoginController'));
         }
         $data['siswa'] = $this->siswa->ambil_siswa();
-        //$data = $guru->ambil_guru();
-        // dd($data);
         echo view('template/header');
         echo view('output_siswa', $data);
     }
@@ -135,7 +133,6 @@ class control_siswa extends BaseController
             'username' => $username,
             'password' => $password,
             'nama_siswa' => $nama,
-            'status_login' => 0
         ];
 
         $this->siswa->input_siswa($data);
@@ -155,19 +152,14 @@ class control_siswa extends BaseController
         if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
-        // $data['guru'] = $this->guru->where(['id_guru', $id]);
-        // dd($data);
         $data['siswa'] = $this->siswa->getSiswa($id);
-        // $data['guru'] = $this->guru->getGuru($id);
-        // $data['guru'] = $this->guru->where('id_guru', $id);
         echo view('template/header');
         echo view('update_siswa', $data);
     }
 
     public function updatesiswa()
     {
-        // $id =  $this->request->getPost('id_siswa');
-        $id = session()->get('id_siswa');
+        $id =  $this->request->getPost('id_siswa');
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
         $nisn = $this->request->getPost('nisn');
@@ -186,19 +178,16 @@ class control_siswa extends BaseController
             'username' => $username,
             'password' => $password,
             'nama_siswa' => $nama,
-            'status_login' => 0
         ];
 
-        $this->siswa->updatesiswayaha($data, $id);
+        $this->siswa->updateSiswa($data, $id);
         session()->setFlashdata('pesan', 'data berhasil diubah');
         return redirect()->to(base_url('control_siswa'));
     }
 
     public function ubahPass()
     {
-        // $id = $this->request->getPost('id');
         $id = session()->get('id_siswa');
-        // $username = $this->request->getPost('uname');
         $username = session()->get('username');
         $oldpass = $this->request->getPost('oldp');
         $newpass = $this->request->getPost('newp');
@@ -209,7 +198,7 @@ class control_siswa extends BaseController
                 $data = [
                     'password' => $newpass
                 ];
-                $this->siswa->updatesiswayaha($data, $id);
+                $this->siswa->updateSiswa($data, $id);
                 $session = session(); // load library session
                 $session_data = [
                     'id_siswa' => $id,
@@ -252,11 +241,10 @@ class control_siswa extends BaseController
 
     public function kerja_soal()
     {
-        # code...
         if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
-        // ada kodingan buat ambil soal
+        // kodingan buat ambil soal
         $p_mapel = $this->request->getPost('id_mata_pelajaran');
         $p_paket = $this->request->getPost('id_paket');
         $count = $this->soal->acq_soal_count($p_mapel, $p_paket);
@@ -265,7 +253,6 @@ class control_siswa extends BaseController
                 'soal' => $this->soal->acq_soal($p_mapel, $p_paket),
                 'count' => $count
             ];
-            // dd($data);
             echo view('template/header');
             echo view('kerjakan_soal', $data);
         } else {
@@ -276,13 +263,11 @@ class control_siswa extends BaseController
 
     public function scoring()
     {
-        # code...
         $benar = 0;
         $salah = 0;
         $totalsoal = 0;
         $nilai = 0;
         for ($i = 1; $i <= $this->request->getPost('count'); $i++) {
-            # code...
             $jawaban = $this->request->getPost($i);
             $kunjaw = $this->request->getPost('kunjaw' . $i);
             if ($jawaban == $kunjaw) {
@@ -296,7 +281,6 @@ class control_siswa extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $tgl = date('d-m-Y H:i:s');
         $data = [
-            // 'id_siswa' => $this->request->getPost('id'),
             'id_siswa' => session()->get('id_siswa'),
             'nilai' => $nilai,
             'tanggal_pengerjaan' => $tgl,

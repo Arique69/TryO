@@ -5,6 +5,8 @@
 
 <head>
     <!-- css internal -->
+
+    
     <style>
         body {
             /* mengubah background image */

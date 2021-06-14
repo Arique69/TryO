@@ -19,13 +19,11 @@ class Nilai extends Model
 
     public function input_nilai($data)
     {
-        # code...
         return $this->db->table('nilai')->insert($data);
     }
 
     public function get_nilai($id)
     {
-        # code...
         return $this->db->table($this->table)->select('*')->where('id_siswa',$id)->get()->getResultArray();
     }
 }

@@ -20,7 +20,6 @@ class control_guru extends BaseController
             return redirect()->to(base_url('LoginController'));
         }
         $data['guru'] = $this->guru->ambil_guru();
-        //$data = $guru->ambil_guru();
         echo view('template/header');
         echo view('Output_guru', $data);
     }
@@ -104,8 +103,8 @@ class control_guru extends BaseController
             'username' => $username,
             'password' => $password,
             'nama_guru' => $nama,
-            'status_login' => 0
         ];
+
 
         $this->guru->input_guru($data);
         session()->setFlashdata('pesan', 'data berhasil ditambahkan');
@@ -123,10 +122,7 @@ class control_guru extends BaseController
         if (!session()->get('isLogin')){
             return redirect()->to(base_url('LoginController'));
         }
-        // dd($data);
         $data['guru'] = $this->guru->getGuru($id);
-        // $data['guru'] = $this->guru->getGuru($id);
-        // $data['guru'] = $this->guru->where('id_guru', $id);
         echo view('template/header');
         echo view('update_guru', $data);
     }
@@ -146,10 +142,9 @@ class control_guru extends BaseController
             'username' => $username,
             'password' => $password,
             'nama_guru' => $nama,
-            'status_login' => 0
         ];
 
-        $this->guru->updateguruyaha($data, $id);
+        $this->guru->updateGuru($data, $id);
         session()->setFlashdata('pesan', 'data berhasil diubah');
         return redirect()->to(base_url('control_guru'));
     }
@@ -159,7 +154,6 @@ class control_guru extends BaseController
             return redirect()->to(base_url('LoginController'));
         }
         $data['nilai'] = $this->guru->ambil_nilai();
-        //$data = $guru->ambil_guru();
         echo view('template/header');
         echo view('output_nilai', $data);
     }

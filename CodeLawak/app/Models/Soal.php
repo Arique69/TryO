@@ -41,8 +41,6 @@ class Soal extends Model
 
     public function acq_soal($mapel, $paket)
     {
-        # code...
-        // return $this->db->table($this->table)->where('id_mata_pelajaran', $mapel)->where('id_paket', $paket)->get()->getResultArray();
         return $this->db->table($this->table)
             ->select('*')
             ->join('mata_pelajaran', 'soal.id_mata_pelajaran = mata_pelajaran.id_mata_pelajaran')
@@ -54,8 +52,6 @@ class Soal extends Model
 
     public function acq_soal_count($mapel, $paket)
     {
-        # code...
-        // return $this->db->table($this->table)->where('id_mata_pelajaran', $mapel)->where('id_paket', $paket)->get()->getResultArray();
         return $this->db->table($this->table)
             ->select('*')
             ->join('mata_pelajaran', 'soal.id_mata_pelajaran = mata_pelajaran.id_mata_pelajaran')

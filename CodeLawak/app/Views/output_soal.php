@@ -34,7 +34,7 @@
 
 <body>
     <!-- page bawahnya -->
-    <div class="container" style="margin-top: 100px;">
+    <div class="container" style="margin-top: 100px; margin-bottom: 100px">
         <div class="row">
             <h1> Daftar Data Soal </h1>
         </div>

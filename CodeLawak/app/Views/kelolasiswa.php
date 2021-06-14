@@ -30,7 +30,6 @@
                             <!-- supaya input page hanya bisa di page ini saja -->
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan nama siswa</label>
                                 <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" placeholder="Nama siswa" id="nama" name="nama">
                                 <div class="invalid-feedback">
@@ -96,9 +95,6 @@
 
                 </div>
             </div>
-            <!-- <div class="col-sm-4">
-                <img src="<?//= base_url('img/input.png') ?>" style="width: 150%;">
-            </div> -->
         </div>
     </div>
 

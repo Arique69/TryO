@@ -50,20 +50,18 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan Link gambar</label>
                                 <input type="hidden" class="form-control" id="id" name="id_soal" value="<?php echo $soal['id_soal'] ?>">
                                 <textarea type="text" class="form-control" placeholder="Link gambar" id="gambar" name="gambar"><?php echo $soal['gambar'] ?></textarea>
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan Isi Soal</label>
                                 <textarea type="text" class="form-control" id="isi_soal" name="isi_soal"><?php echo $soal['isi_soal'] ?></textarea>
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
+
                                 <label for="nama">OPSI A</label>
                                 <textarea type="text" class="form-control" placeholder="Opsi A" id="opsi_a" name="opsi_a"><?php echo $soal['opsi_a'] ?></textarea>
                             </div>

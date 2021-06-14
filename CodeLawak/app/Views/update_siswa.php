@@ -30,7 +30,6 @@
                             <!-- supaya input page hanya bisa di page ini saja -->
                             <?= csrf_field(); ?>
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <input type="hidden" class="form-control" id="id" name="id_siswa" value="<?php echo $siswa['id_siswa'] ?>">
                                 <label for="nama">Masukan nama siswa</label>
                                 <input type="text" class="form-control" placeholder="Nama siswa" id="nama" name="nama" value="<?php echo $siswa['nama_siswa'] ?>">

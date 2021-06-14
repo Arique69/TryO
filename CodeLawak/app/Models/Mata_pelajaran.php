@@ -17,7 +17,6 @@ class Mata_pelajaran extends Model
 
     public function input_mapel($data)
     {
-        # code...
         return $this->db->table('mata_pelajaran')->insert($data);
     }
 

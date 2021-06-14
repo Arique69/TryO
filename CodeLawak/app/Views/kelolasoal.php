@@ -49,13 +49,11 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan Link gambar</label>
                                 <textarea type="text" class="form-control" placeholder="Link gambar" id="gambar" name="gambar"></textarea>
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">Masukan Isi Soal</label>
                                 <textarea type="text" class="form-control <?= ($validation->hasError('isi_soal')) ? 'is-invalid' : '' ?>" placeholder="Isi Soal" id="isi_soal" name="isi_soal"></textarea>
                                 <div class="invalid-feedback">
@@ -64,7 +62,6 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">OPSI A</label>
                                 <textarea type="text" class="form-control <?= ($validation->hasError('opsi_a')) ? 'is-invalid' : '' ?>" placeholder="Opsi A" id="opsi_a" name="opsi_a"></textarea>
                                 <div class="invalid-feedback">
@@ -73,7 +70,6 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">OPSI B</label>
                                 <textarea type="text" class="form-control <?= ($validation->hasError('opsi_b')) ? 'is-invalid' : '' ?>" placeholder="Opsi B" id="opsi_b" name="opsi_b"></textarea>
                                 <div class="invalid-feedback">
@@ -82,7 +78,6 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <input type="number" class="form-control" id="id" value="" hidden> -->
                                 <label for="nama">OPSI C</label>
                                 <textarea type="text" class="form-control <?= ($validation->hasError('opsi_c')) ? 'is-invalid' : '' ?>" placeholder="Opsi C" id="opsi_c" name="opsi_c"></textarea>
                                 <div class="invalid-feedback">
@@ -108,10 +103,6 @@
 
                 </div>
             </div>
-            <!-- <div class="col-sm-4">
-                <img src="<? //= base_url('img/input.png') 
-                            ?>" style="width: 150%;">
-            </div> -->
         </div>
     </div>
 

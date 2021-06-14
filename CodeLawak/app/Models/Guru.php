@@ -16,7 +16,6 @@ class Guru extends Model
 
     public function input_guru($data)
     {
-        # code...
         return $this->db->table('guru')->insert($data);
     }
 
@@ -24,14 +23,11 @@ class Guru extends Model
         return $this->db->table($this->table)->delete(['id_guru' => $primaryKey]);
     }
 
-    public function updateguruyaha($data, $primaryKey){
+    public function updateGuru($data, $primaryKey){
         return $this->db->table($this->table)->update($data, ['id_guru' => $primaryKey]);
     }
 
     public function getGuru($primaryKey){
-        // return $this->db->table($this->table)->getWhere(['id_guru' => $primarykey], 1, 1);
-        // return $this->find($primarykey);
         return $this->find($primaryKey);
-
     }
 }
