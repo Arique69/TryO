@@ -13,7 +13,7 @@
     <link rel="styleshet" href="gaya.css">
 
     <!-- judul -->
-    <title>Input Data Soal</title>
+    <title>Input Data Guru</title>
     <style>
         body {
             background-image: url(https://sorongselatan.bawaslu.go.id/wp-content/uploads/2020/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg);
@@ -34,36 +34,56 @@
 
 <body>
     <!-- page bawahnya -->
-    <div class="container" style="margin-top: 100px;">
+    <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
         <div class="row">
-            <br>
+            <h1> Daftar Data Siswa </h1>
         </div>
         <div class="container">
-            <!-- ini nambah tombol kelola guru -->
-            <!-- searching bar -->
-            <!-- <input type="text" id="searchbar" onkeyup="filtertable()" placeholder="Search for names.." class=""> -->
-            <!-- buat nambah flash data -->
+            <a href="<?php echo base_url('control_siswa/kelolasiswa') ?>" class="btn btn-success mt-3 mb-3">Tambah Siswa</a>
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success mt-2" role="alert">
                     <?= session()->getFlashdata('pesan'); ?>
                 </div>
             <?php endif; ?>
-            <h1>Rekap Nilai Anda</h1>
-            <div class="card">
-                <div class="ml-3 mr-3">
-                    <br><br>
-                    <h4>Mata Pelajaran : <?php echo $data['mata_pelajaran']; ?></h4>
-                    <h4>Tanggal Pengerjaan : <?php echo $data['tanggal_pengerjaan']; ?></h4>
-                    <h4>Benar : <?php echo $benar; ?></h4>
-                    <h4>Salah : <?php echo $salah; ?></h4>
-                    <h4>Total Soal : <?php echo $totalsoal; ?></h4>
-                    <h4>Nilai : <?php echo $data['nilai']; ?></h4>
-                    <br><br>
-                </div>
+            <div>
+                <table id="table_id" class="display table table-striped table-bordered table-sm mt-3">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>no</th>
+                            <th>NISN</th>
+                            <th>Username</th>
+                            <th>Nama Siswa</th>
+                            <th>Email</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Tempat, Tanggal Lahir</th>
+                            <th>Kelas</th>
+                            <th>Hapus</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($siswa as $s) :  ?>
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $s['NISN']; ?></td>
+                                <td><?= $s['username']; ?></td>
+                                <td><?= $s['nama_siswa']; ?></td>
+                                <td><?= $s['email']; ?></td>
+                                <td><?= $s['jenis_kelamin']; ?></td>
+                                <td><?= $s['TTL']; ?></td>
+                                <td><?= $s['kelas']; ?></td>
+                                <td><a href="<?php echo base_url('control_siswa/delete_siswa/' . $s['id_siswa']); ?>" class="btn btn-danger btn-block" onclick="return confirm('Apakah anda yakin ?')">Hapus</a></td>
+                                <td><a href="<?php echo base_url('control_siswa/update_siswa/' . $s['id_siswa']); ?>" class="btn btn-warning btn-block">edit</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
             <div class="row">
                 <div class="col md-6">
-                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menusiswa') ?>">Kembali</a>
+                    <a class="btn btn-primary btn-block mt-2" href="<?php echo base_url('Home/menuAdmin') ?>">Kembali</a>
                 </div>
             </div>
         </div>

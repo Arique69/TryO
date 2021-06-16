@@ -12,11 +12,13 @@ use Config\Services;
 
 class control_siswa extends BaseController
 {
+    #mendeklarasikan tabel yang dipakai
     protected $soal;
     protected $mapel;
     protected $paket;
     protected $siswa;
 
+    //contruct object
     public function __construct()
     {
         $this->siswa = new Siswa();
@@ -25,7 +27,8 @@ class control_siswa extends BaseController
         $this->mapel = new Mata_pelajaran();
         $this->nilai = new Nilai();
     }
-
+    
+    //mengambil semua data siswa dari database
     public function index()
     {
         if (!session()->get('isLogin')) {
@@ -36,6 +39,7 @@ class control_siswa extends BaseController
         echo view('output_siswa', $data);
     }
 
+    //menampilkan halaman tambah siswa
     public function kelolasiswa()
     {
         if (!session()->get('isLogin')) {
@@ -49,7 +53,7 @@ class control_siswa extends BaseController
         echo view('kelolasiswa', $data);
     }
 
-    // function yang melakukan CRUD
+    //menambahkan data siswa ke dalam database
     public function insert_siswa()
     {
         //validasi input
@@ -140,6 +144,7 @@ class control_siswa extends BaseController
         return redirect()->to(base_url('control_siswa'));
     }
 
+    #menghapus data siswa di database
     public function delete_siswa($id)
     {
         $this->siswa->deletesiswa($id);
@@ -147,6 +152,7 @@ class control_siswa extends BaseController
         return redirect()->to(base_url('control_siswa'));
     }
 
+    #menampilkan halaman update siswa berdasarkan database
     public function update_siswa($id)
     {
         if (!session()->get('isLogin')) {
@@ -157,6 +163,7 @@ class control_siswa extends BaseController
         echo view('update_siswa', $data);
     }
 
+    #mengupdate siswa di database
     public function updatesiswa()
     {
         $id =  $this->request->getPost('id_siswa');
@@ -185,6 +192,7 @@ class control_siswa extends BaseController
         return redirect()->to(base_url('control_siswa'));
     }
 
+    #untuk mengubah password siswa
     public function ubahPass()
     {
         $id = session()->get('id_siswa');
@@ -218,6 +226,7 @@ class control_siswa extends BaseController
         }
     }
 
+    #menampilkan menu ubah password
     public function menu_pass()
     {
         if (!session()->get('isLogin')) {
@@ -227,9 +236,9 @@ class control_siswa extends BaseController
         echo view('ganti_password');
     }
 
+    #menampilkan menu pilih tryout
     public function prep_soal()
     {
-        # code...
         if (!session()->get('isLogin')) {
             return redirect()->to(base_url('LoginController'));
         }
@@ -239,6 +248,7 @@ class control_siswa extends BaseController
         echo view('prep_soal', $data);
     }
 
+    //menampilkan soal berdasarkan paket dan mata pelajaran yang dipilih
     public function kerja_soal()
     {
         if (!session()->get('isLogin')) {
@@ -261,6 +271,7 @@ class control_siswa extends BaseController
         }
     }
 
+    #melakukan scoring terhadap tryout yang dikerjakan
     public function scoring()
     {
         $benar = 0;

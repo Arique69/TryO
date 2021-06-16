@@ -96,9 +96,6 @@
 
                 </div>
             </div>
-            <div class="col-sm-4">
-                <img src="<?//= base_url('img/input.png') ?>" style="width: 150%;">
-            </div>
         </div>
     </div>
 

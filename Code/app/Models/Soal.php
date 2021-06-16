@@ -20,7 +20,6 @@ class Soal extends Model
 
     public function input_soal($data)
     {
-        # code...
         return $this->db->table('soal')->insert($data);
     }
 

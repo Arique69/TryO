@@ -9,10 +9,12 @@ use Config\Services;
 
 class control_soal extends BaseController
 {
+    #mendeklarasikan tabel yang dipakai
     protected $soal;
     protected $mapel;
     protected $paket;
 
+    //construct object
     public function __construct()
     {
         $this->soal = new Soal();
@@ -20,6 +22,7 @@ class control_soal extends BaseController
         $this->mapel = new Mata_pelajaran();
     }
 
+    #mengambil semua data soal dari database
     public function index()
     {
         if (!session()->get('isLogin')){
@@ -30,6 +33,7 @@ class control_soal extends BaseController
         echo view('output_soal', $data);
     }
 
+    #menampilkan halaman tambah soal
     public function kelolasoal()
     {
         if (!session()->get('isLogin')){
@@ -47,7 +51,7 @@ class control_soal extends BaseController
     }
 
 
-    // function yang melakukan CRUD
+    // menambahkan soal ke dalam database
     public function insert_soal()
     {
         //validasi input
@@ -111,13 +115,15 @@ class control_soal extends BaseController
         return redirect()->to(base_url('control_soal'));
     }
 
+    #menghapus soal dari database
     public function delete_soal($id)
     {
         $this->soal->deletesoal($id);
         session()->setFlashdata('pesan', 'data berhasil dihapus');
         return redirect()->to(base_url('control_soal'));
     }
-
+    
+    #menampilkan halaman update soal berdasarkan id
     public function update_soal($id)
     {
         if (!session()->get('isLogin')){
@@ -130,6 +136,7 @@ class control_soal extends BaseController
         echo view('update_soal', $data);
     }
 
+    #mengupdate soal di databse
     public function updatesoal()
     {
         $id =  $this->request->getPost('id_soal');

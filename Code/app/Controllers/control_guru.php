@@ -8,12 +8,18 @@ use Config\Services;
 
 class control_guru extends BaseController
 {
+    #mendeklarasikan tabel yang dipakai
     protected $guru;
+    protected $nilai;
+
+    //construct object
     public function __construct()
     {
         $this->guru = new Guru();
+        $this->nilai = new Nilai();
     }
 
+    #mengambil semua data guru dari database
     public function index()
     {
         if (!session()->get('isLogin')){
@@ -24,11 +30,7 @@ class control_guru extends BaseController
         echo view('Output_guru', $data);
     }
 
-    public function header()
-    {
-        return view('template/header');
-    }
-
+    #menampilkan halaman tambah guru
     public function kelolaguru()
     {
         if (!session()->get('isLogin')){
@@ -43,7 +45,7 @@ class control_guru extends BaseController
         echo view('kelolaguru', $data);
     }
 
-    // function yang melakukan CRUD
+    //memasukan data guru ke database
     public function insert_guru()
     {
         //validasi input
@@ -110,13 +112,16 @@ class control_guru extends BaseController
         session()->setFlashdata('pesan', 'data berhasil ditambahkan');
         return redirect()->to(base_url('control_guru'));
     }
+
+    //menghapus data guru dari database berdasarkan id
     public function delete_guru($id)
     {
         $this->guru->deleteguru($id);
         session()->setFlashdata('pesan', 'data berhasil dihapus');
         return redirect()->to(base_url('control_guru'));
     }
-
+    
+    //menampilkan halaman update guru berdasarkan id yang dipilih
     public function update_guru($id)
     {
         if (!session()->get('isLogin')){
@@ -127,6 +132,7 @@ class control_guru extends BaseController
         echo view('update_guru', $data);
     }
 
+    //mengupdate data guru pada database
     public function updateguru()
     {
         $id =  $this->request->getPost('id_guru');
@@ -149,11 +155,12 @@ class control_guru extends BaseController
         return redirect()->to(base_url('control_guru'));
     }
 
+    //mengambil semua nilai siswa dari database
     public function lihat_nilai_siswa(){
         if (!session()->get('isLogin')){
             return redirect()->to(base_url('LoginController'));
         }
-        $data['nilai'] = $this->guru->ambil_nilai();
+        $data['nilai'] = $this->nilai->ambil_nilai();
         echo view('template/header');
         echo view('output_nilai', $data);
     }

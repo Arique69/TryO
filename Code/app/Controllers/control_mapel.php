@@ -7,12 +7,16 @@ use Config\Services;
 
 class control_mapel extends BaseController
 {
+    //mendeklarasikan tabel yang dipakai
     protected $mata_pelajaran;
+
+    //construct object
     public function __construct()
     {
         $this->mata_pelajaran = new Mata_pelajaran();
     }
 
+    #menampilkan semua data mata pelajaran dari database
     public function index()
     {
         if (!session()->get('isLogin')){
@@ -23,6 +27,7 @@ class control_mapel extends BaseController
         echo view('output_mapel', $data);
     }
 
+    #menampilkan halaman tambah mata pelajaran
     public function kelola_mapel()
     {
         if (!session()->get('isLogin')){
@@ -36,7 +41,7 @@ class control_mapel extends BaseController
         echo view('kelola_mapel', $data);
     }
 
-    // function yang melakukan CRUD
+    //menambahkan matapelajaran ke database
     public function insert_mapel()
     {
         //validasi input
@@ -64,6 +69,7 @@ class control_mapel extends BaseController
         return redirect()->to(base_url('control_mapel'));
     }
 
+    //menghapus matapelajaran dari database
     public function delete_mapel($id)
     {
         $this->mata_pelajaran->delete_mapel($id);
@@ -71,6 +77,7 @@ class control_mapel extends BaseController
         return redirect()->to(base_url('control_mapel'));
     }
 
+    #menampilkan halaman update matapelajaran berdasarkan id
     public function update_mapel($id)
     {
         $data['mata_pelajaran'] = $this->mata_pelajaran->get_mapel($id);
@@ -78,6 +85,7 @@ class control_mapel extends BaseController
         echo view('update_mapel', $data);
     }
 
+    #mengupdate matapelajaran di database
     public function updatemapel()
     {
         $id =  $this->request->getPost('id_mata_pelajaran');

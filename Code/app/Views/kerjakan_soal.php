@@ -34,6 +34,7 @@
                                 <?php foreach ($soal as $s) : ?>
                                     <div class="form-group">
                                         <label for="message-text" class="control-label">
+                                        <img src="<?php echo $s['gambar'] ?>" style="display: block; width:250px; heigth:250px;">
                                             <b> <?php echo $no . '.'; ?> <span> <?php echo $s['isi_soal']; ?> </span></b>
                                             <br>
                                             <div>

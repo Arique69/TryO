@@ -17,7 +17,6 @@ class Siswa extends Model
 
     public function input_siswa($data)
     {
-        # code...
         return $this->db->table('siswa')->insert($data);
     }
 

@@ -1,19 +1,21 @@
 <?php
 
 namespace App\Controllers;
-
-use App\Models\Mata_pelajaran;
 use App\Models\Paket;
 use Config\Services;
 
 class control_paket extends BaseController
 {
+    #mendeklarasikan tabel yang dipakai
     protected $paket;
+
+    #construct object
     public function __construct()
     {
         $this->paket = new Paket();
     }
 
+    #mengambil semua data paket dari database
     public function index()
     {
         if (!session()->get('isLogin')){
@@ -24,6 +26,7 @@ class control_paket extends BaseController
         echo view('output_paket', $data);
     }
 
+    #menampilkan halaman tambah paket
     public function kelola_paket()
     {
         if (!session()->get('isLogin')){
@@ -37,7 +40,7 @@ class control_paket extends BaseController
         echo view('kelola_paket', $data);
     }
 
-    // function yang melakukan CRUD
+    // fmenambahkan paket ke dalama database
     public function insert_paket()
     {
         //validasi input
@@ -65,6 +68,7 @@ class control_paket extends BaseController
         return redirect()->to(base_url('control_paket'));
     }
 
+    //menghapus paket dari database
     public function delete_paket($id)
     {
         $this->paket->delete_paket($id);
@@ -72,6 +76,7 @@ class control_paket extends BaseController
         return redirect()->to(base_url('control_paket'));
     }
 
+    //menampilkan halaman update paket berdasarkan id
     public function update_paket($id)
     {
         if (!session()->get('isLogin')){
@@ -82,6 +87,7 @@ class control_paket extends BaseController
         echo view('update_paket', $data);
     }
 
+    //mengupdate paket di database
     public function updatepaket()
     {
         $id =  $this->request->getPost('id_paket');
